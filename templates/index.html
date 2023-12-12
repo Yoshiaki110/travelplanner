@@ -133,7 +133,8 @@
 
       // コースを表示
       function printroute(ret) {
-        if (ret['details'].length == 0) {
+        if (!ret || ret['details'].length == 0) {
+          printrow("エラー");
           return;
         }
         var val = elm_radio.elements['radio'].value;
