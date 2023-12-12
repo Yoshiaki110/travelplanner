@@ -28,6 +28,7 @@ openai_client = OpenAI(api_key=OPENAI_KEY)
 @app.route('/')
 def tp_iphone():
     print("** / " + request.method)
+    tp.tp_init(DWAVE_KEY)
     resp = make_response(render_template("index.html", GOOGLEMAP_KEY = GOOGLEMAP_KEY))
     return resp
 
@@ -55,7 +56,7 @@ def tp_api():
     print(indexs)
     table = request.json['table']
     print(table)
-    ret = tp.tp_api(indexs, table, DWAVE_KEY)
+    ret = tp.tp_api(indexs, table)
     print(ret)
     return jsonify(ret)
 

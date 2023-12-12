@@ -1,10 +1,21 @@
 # -*- coding: utf-8 -*-
 
+import time
 from tytan import *
 import numpy as np
 from dwave.system import DWaveSampler, EmbeddingComposite
 
-def tp_api(indexs, table, token):
+dw_sampler = {}
+
+def tp_init(token):
+    global dw_sampler
+    endpoint = "https://cloud.dwavesys.com/sapi/"
+    solver = "Advantage_system4.1" #以下参照
+    tm4 = time.perf_counter()
+    dw_sampler = DWaveSampler(solver = solver, token = token, endpoint = endpoint)
+
+def tp_api(indexs, table):
+    tm1 = time.perf_counter()
     L = np.array(table)
     L = np.delete(L, indexs, 0)
     L = np.delete(L, indexs, 1)
@@ -33,20 +44,19 @@ def tp_api(indexs, table, token):
     for l in range(N):
         for c in range(N):
             for n in range(N - 1):
-                H += 0.1 * L[l, c] * (q[n, c] * q[n + 1, l])
+                H += 0.01 * L[l, c] * (q[n, c] * q[n + 1, l])
 
     # スタートは
-    H += (q[0, 0] - 1)**2
+    H += (q[0, 0] - 1) ** 2
 
     # 最後は
-    H += (q[N - 1, N - 1] - 1)**2
-
-    # 最後はE
     H += (q[N - 1, N - 1] - 1) ** 2
 
     # コンパイル
+    tm2 = time.perf_counter()
     qubo, offset = Compile(H).get_qubo()
     print(f'offset\n{offset}')
+    tm3 = time.perf_counter()
 
     '''
     # サンプラー選択
@@ -54,13 +64,12 @@ def tp_api(indexs, table, token):
     # サンプリング
     result = solver.run(qubo, shots=20)
     '''
-    endpoint = "https://cloud.dwavesys.com/sapi/"
-    solver = "Advantage_system4.1" #以下参照
-    dw_sampler = DWaveSampler(solver = solver, token = token, endpoint = endpoint)
     #指定したD-Waveマシン上でのQBITの自動割当を準備
     sampler = EmbeddingComposite(dw_sampler)
+    tm4 = time.perf_counter()
     # quboの入力
     result = sampler.sample_qubo(qubo, num_reads=10).record
+    tm5 = time.perf_counter()
 
     # 上位5件
     for r in result[:1]:
@@ -81,7 +90,7 @@ def tp_api(indexs, table, token):
             rroute.append(int(M[idx]))
         else:
             print('エラー')
-            return {}
+            return {'time': [tm2-tm1,tm3-tm2,tm4-tm3,tm5-tm4]}
     print(route)
     for i in range(len(route) - 1):
         print(route[i], route[i+1], L[route[i], route[i+1]])
@@ -92,9 +101,11 @@ def tp_api(indexs, table, token):
         }
         details.append(detail)
 
+    tm6 = time.perf_counter()
     ret = {
         'route': rroute,
-        'details': details
+        'details': details,
+        'time': [tm2-tm1,tm3-tm2,tm4-tm3,tm5-tm4,tm6-tm5]
     }
-    print(ret)
+    #print(ret)
     return ret
