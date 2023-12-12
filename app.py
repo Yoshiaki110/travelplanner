@@ -15,8 +15,9 @@ from openai import OpenAI
 #import tp_pyqubo as tp
 import tp_tytan as tp
 
-OPENAI_KEY = os.environ['OPENAI_KEY'] 
-GOOGLEMAP_KEY = os.environ['GOOGLEMAP_KEY'] 
+OPENAI_KEY = os.environ['OPENAI_KEY']
+GOOGLEMAP_KEY = os.environ['GOOGLEMAP_KEY']
+DWAVE_KEY = os.environ['DWAVE_KEY']
 
 app = Flask(__name__)
 openai_client = OpenAI(api_key=OPENAI_KEY)
@@ -54,7 +55,7 @@ def tp_api():
     print(indexs)
     table = request.json['table']
     print(table)
-    ret = tp.tp_api(indexs, table)
+    ret = tp.tp_api(indexs, table, DWAVE_KEY)
     print(ret)
     return jsonify(ret)
 

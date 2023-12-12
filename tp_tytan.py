@@ -2,9 +2,9 @@
 
 from tytan import *
 import numpy as np
+from dwave.system import DWaveSampler, EmbeddingComposite
 
-
-def tp_api(indexs, table):
+def tp_api(indexs, table, token):
     L = np.array(table)
     L = np.delete(L, indexs, 0)
     L = np.delete(L, indexs, 1)
@@ -48,22 +48,32 @@ def tp_api(indexs, table):
     qubo, offset = Compile(H).get_qubo()
     print(f'offset\n{offset}')
 
+    '''
     # サンプラー選択
     solver = sampler.SASampler()
-
     # サンプリング
     result = solver.run(qubo, shots=20)
+    '''
+    endpoint = "https://cloud.dwavesys.com/sapi/"
+    solver = "Advantage_system4.1" #以下参照
+    dw_sampler = DWaveSampler(solver = solver, token = token, endpoint = endpoint)
+    #指定したD-Waveマシン上でのQBITの自動割当を準備
+    sampler = EmbeddingComposite(dw_sampler)
+    # quboの入力
+    result = sampler.sample_qubo(qubo, num_reads=10).record
 
     # 上位5件
     for r in result[:1]:
         print(r)
-    print(np.array(list(r[0].values())).reshape(N, N))
+    #print(np.array(list(r[0].values())).reshape(N, N))
+    print(np.array(list(r[0])).reshape(N, N))
 
     # 判り易いように
     route = []
     rroute = []
     details = []
-    arr = np.array(list(result[0][0].values())).reshape(N, N)
+    #arr = np.array(list(result[0][0].values())).reshape(N, N)
+    arr = np.array(list(result[0][0])).reshape(N, N)
     for i in arr:
         if 1 in i:
             idx = np.where(i==1)[0][0]
