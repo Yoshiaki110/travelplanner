@@ -15,8 +15,11 @@ from openai import OpenAI
 #import tp_pyqubo as tp
 import tp_tytan as tp
 
+OPENAI_KEY = os.environ['OPENAI_KEY'] 
+GOOGLEMAP_KEY = os.environ['GOOGLEMAP_KEY'] 
+
 app = Flask(__name__)
-openai_client = OpenAI(api_key='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')
+openai_client = OpenAI(api_key=OPENAI_KEY)
 
 #
 # トラベルプランナー
@@ -24,7 +27,7 @@ openai_client = OpenAI(api_key='sk-BSIw4wpnSUot6P3EbwQfT3BlbkFJwoPi1i4IU9LWafx8C
 @app.route('/')
 def tp_iphone():
     print("** / " + request.method)
-    resp = make_response(render_template("index.html"))
+    resp = make_response(render_template("index.html", GOOGLEMAP_KEY = GOOGLEMAP_KEY))
     return resp
 
 @app.route('/guida')

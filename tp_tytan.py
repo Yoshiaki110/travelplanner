@@ -52,7 +52,7 @@ def tp_api(indexs, table):
     solver = sampler.SASampler()
 
     # サンプリング
-    result = solver.run(qubo, shots=100)
+    result = solver.run(qubo, shots=20)
 
     # 上位5件
     for r in result[:1]:
