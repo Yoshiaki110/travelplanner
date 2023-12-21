@@ -90,7 +90,7 @@
           center: { lat: 34.9875936, lng: 135.7567649 },
           mapTypeId: "terrain",
         });
-        google.maps.event.addListener(_map, 'click', click_map);
+        //google.maps.event.addListener(_map, 'click', click_map1);
       }
       window.initMap = initMap;
 
@@ -235,7 +235,8 @@
           });
       }
 
-      function click_map(event) {
+      // Google Place APIで観光地情報を取得する場合
+      function click_map1(event) {
         //alert(event.latLng.toString());
         var request = {
           location: event.latLng,
@@ -271,7 +272,6 @@
             console.log(results[0].name + ' ' + d + 'km');
             elm_around.value = results[0].name + '（ここから ' + (Math.round(d * 10) / 10) + 'km）'
 
-            const obj = {name: results[0].name, distance: d};
             fetch("/guida?name=" + results[0].name + "&distance=" + d)
               .then(function (response) {
                 return response.json();
@@ -286,18 +286,15 @@
         }
       }
 
-
-
-      function click_map11(event) {
-
+      // ChatGPTで観光地情報を取得する場合（清水寺と金閣寺しか出てこない）
+      function click_map2(event) {
         const obj = {lat: event.latLng.lat(), lng: event.latLng.lng()};
-        const method = "GET";
         const body = JSON.stringify(obj);
         const headers = {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         };
-        fetch("/guida", {method, headers, body})
+        fetch("/guida?lat=" + event.latLng.lat() + "&lng=" + event.latLng.lng())
           .then(function (response) {
             return response.json();
           }).then(function (myjson) {

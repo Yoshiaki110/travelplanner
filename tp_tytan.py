@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import time
-from tytan import *
+from tytan import symbols, symbols_list, symbols_define, symbols_nbit, Compile, sampler, Auto_array
 import numpy as np
 from dwave.system import DWaveSampler, EmbeddingComposite
 

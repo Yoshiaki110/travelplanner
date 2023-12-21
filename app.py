@@ -37,14 +37,19 @@ def tp_guidance():
     print("** /guida " + request.method)
     name = request.args.get('name', '')
     distance = request.args.get('distance', '')
+    lat = request.args.get('lat', '')
+    lng = request.args.get('lng', '')
 
     res = openai_client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "京都にある観光地について200文字程度で教えてください。"},  # 役割設定（省略可）
             {"role": "user", "content": name + "について解説をお願いします。その観光地の名称や位置についての情報は不要です。"}               # 最初の質問
+            # 位置を指定した場合temperature=0にしないとダメ、また清水寺と金閣寺しか回答しない
+            #{"role": "system", "content": "指定の地点から1km以内にある観光地について200文字程度で教えてください。"},  # 役割設定（省略可）
+            #{"role": "user", "content": '緯度' + lat + '、緯度' + lng + 'に一番近い観光地の情報を教えてください。緯度と経度は回答しないでください。'}               # 最初の質問
         ],
-        temperature=1  # 温度（0-2, デフォルト1）
+        temperature=0  # 温度（0-2, デフォルト1）
     )
     print(res.choices[0].message.content)  # 答えが返る
     return jsonify({'text': res.choices[0].message.content})
