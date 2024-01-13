@@ -61,10 +61,11 @@ requests==2.31.0
 scipy==1.10.1
 six==1.16.0
 sniffio==1.3.0
+symengine==0.11.0
 sympy==1.12
 tqdm==4.66.1
 typing-extensions==4.8.0
-tytan @ git+https://github.com/tytansdk/tytan@145ee8386606d06915532f1878f4dc8bf6d76d2c
+tytan @ git+https://github.com/tytansdk/tytan@1feda1457417d5cb13a2737cf3f95b0f89b8b4df
 tzdata==2023.3
 ulid-py==1.1.0
 urllib3==2.1.0
