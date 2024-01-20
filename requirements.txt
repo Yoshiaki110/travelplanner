@@ -26,6 +26,7 @@ dwavebinarycsp==0.3.0
 exceptiongroup==1.2.0
 fasteners==0.19
 Flask==3.0.1
+gunicorn==21.2.0
 h11==0.14.0
 homebase==1.0.1
 httpcore==1.0.2
