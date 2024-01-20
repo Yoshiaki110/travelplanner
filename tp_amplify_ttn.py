@@ -3,11 +3,19 @@
 import time
 from tytan import symbols, symbols_list, symbols_define, symbols_nbit, Compile, sampler, Auto_array
 import numpy as np
-#from dwave.system import DWaveSampler, EmbeddingComposite
+from amplify import Solver
+from amplify.client import FixstarsClient
+from amplify import (BinaryPoly, BinaryQuadraticModel, gen_symbols, Solver, decode_solution, )
 
-dw_sampler = {}
+client = None
 
 def tp_init(token):
+    # クライアントの設定
+    global client
+    client = FixstarsClient()  # Fixstars Amplify AE
+    client.parameters.timeout = 1000  # タイムアウト1秒
+    client.token = token  # ご自身のトークンを入力
+
     #global dw_sampler
     #endpoint = "https://cloud.dwavesys.com/sapi/"
     #solver = "Advantage_system4.1" #以下参照
@@ -57,31 +65,35 @@ def tp_api(indexs, table):
     qubo, offset = Compile(H).get_qubo()
     print(f'offset\n{offset}')
     tm3 = time.perf_counter()
-
+    '''
     # サンプラー選択
     solver = sampler.SASampler()
     # サンプリング
     result = solver.run(qubo, shots=100)
     '''
-    #指定したD-Waveマシン上でのQBITの自動割当を準備
-    sampler = EmbeddingComposite(dw_sampler)
-    tm4 = time.perf_counter()
-    # quboの入力
-    result = sampler.sample_qubo(qubo, num_reads=10).record
-    tm5 = time.perf_counter()
-    '''
-    # 上位5件
-    for r in result[:1]:
-        print(r)
-    print(np.array(list(r[0].values())).reshape(N, N))
-    #print(np.array(list(r[0])).reshape(N, N))
+    sp = []
+    for i in range(N):
+        for j in range(N):
+            sp.append("q" + str(i) + "_" + str(j))
+    Q = {}
+    for i in range(N*N):
+        for j in range(N*N):
+            if ((sp[i], sp[j]) in qubo):
+                Q[(i, j)] = qubo[(sp[i], sp[j])]
+
+    f = BinaryPoly(Q)
+    model0 = BinaryQuadraticModel(f)
+
+    # マシンを実行
+    solver = Solver(client)  # ソルバーに使用するクライアントを設定
+    result = solver.solve(model0)  # 問題を入力してマシンを実行
+
 
     # 判り易いように
     route = []
     rroute = []
     details = []
-    arr = np.array(list(result[0][0].values())).reshape(N, N)
-    #arr = np.array(list(result[0][0])).reshape(N, N)
+    arr = np.array([result[0].values[j] for j in range(N*N)]).reshape(N, N)
     for i in arr:
         if 1 in i:
             idx = np.where(i==1)[0][0]

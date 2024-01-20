@@ -13,11 +13,13 @@ import json
 import ftplib
 from openai import OpenAI
 #import tp_pyqubo as tp
-import tp_tytan as tp
+#import tp_tytan as tp
+import tp_amplify_ttn as tp
 
 OPENAI_KEY = os.environ['OPENAI_KEY']
 GOOGLEMAP_KEY = os.environ['GOOGLEMAP_KEY']
 DWAVE_KEY = os.environ['DWAVE_KEY']
+AMPLIFY_KEY = os.environ['AMPLIFY_KEY']
 
 app = Flask(__name__)
 openai_client = OpenAI(api_key=OPENAI_KEY)
@@ -28,7 +30,8 @@ openai_client = OpenAI(api_key=OPENAI_KEY)
 @app.route('/')
 def tp_iphone():
     print("** / " + request.method)
-    tp.tp_init(DWAVE_KEY)
+    #tp.tp_init(DWAVE_KEY)
+    tp.tp_init(AMPLIFY_KEY)
     resp = make_response(render_template("index.html", GOOGLEMAP_KEY = GOOGLEMAP_KEY))
     return resp
 
