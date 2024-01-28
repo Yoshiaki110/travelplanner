@@ -20,6 +20,7 @@ OPENAI_KEY = os.environ['OPENAI_KEY']
 GOOGLEMAP_KEY = os.environ['GOOGLEMAP_KEY']
 DWAVE_KEY = os.environ['DWAVE_KEY']
 AMPLIFY_KEY = os.environ['AMPLIFY_KEY']
+NAVITIME_KEY = os.environ['NAVITIME_KEY']
 
 app = Flask(__name__)
 openai_client = OpenAI(api_key=OPENAI_KEY)
@@ -28,11 +29,19 @@ openai_client = OpenAI(api_key=OPENAI_KEY)
 # トラベルプランナー
 #
 @app.route('/')
-def tp_iphone():
+def tp_index():
     print("** / " + request.method)
     #tp.tp_init(DWAVE_KEY)
     tp.tp_init(AMPLIFY_KEY)
     resp = make_response(render_template("index.html", GOOGLEMAP_KEY = GOOGLEMAP_KEY))
+    return resp
+
+@app.route('/realtime')
+def tp_realtime():
+    print("** /realtime " + request.method)
+    #tp.tp_init(DWAVE_KEY)
+    tp.tp_init(AMPLIFY_KEY)
+    resp = make_response(render_template("realtime.html", GOOGLEMAP_KEY = GOOGLEMAP_KEY))
     return resp
 
 @app.route('/guida')
@@ -66,6 +75,60 @@ def tp_api():
     print(table)
     ret = tp.tp_api(indexs, table)
     print(ret)
+    return jsonify(ret)
+
+@app.route("/tsp", methods=['POST'])
+def tp_tsp():
+    print("** /tsp " + request.method)
+    table = request.json['table']
+    print(table)
+    ret = tp.tp_tsp(table)
+    print(ret)
+    return jsonify(ret)
+
+@app.route("/route")
+def tp_route():
+    print("** /route " + request.method)
+    req = request.args
+    start = req.get("start")
+    startName = req.get("startName")
+    goal = req.get("goal")
+    goalName = req.get("goalName")
+    now = datetime.datetime.now()
+    querystring = {
+      "start": start,
+      "goal": goal,
+      "start_time": now.strftime('%Y-%m-%dT%H:%M:%S'),
+      "limit": '1'
+    }
+    url = "https://navitime-route-totalnavi.p.rapidapi.com/route_transit"
+    headers = {
+        "X-RapidAPI-Key": NAVITIME_KEY,
+        "X-RapidAPI-Host": "navitime-route-totalnavi.p.rapidapi.com"
+    }
+    response = requests.get(url, headers=headers, params=querystring)
+    res = response.json()
+    item = res['items'][0]
+    if 'fare' in item['summary']['move']:
+        print('所要時間', item['summary']['move']['time'], '料金', item['summary']['move']['fare']['unit_0'])
+    else:
+        print('所要時間', item['summary']['move']['time'])
+    route = ''
+    for section in item['sections']:
+        if section['type'] == 'point':
+            print(section['name'])
+            name = section['name']
+            name = startName if name == 'start' else name
+            name = goalName if name == 'goal' else name
+            route += name + '\n'
+        if section['type'] == 'move':
+            print('', section['line_name'], section['distance'], section['time'] )
+            route += ' ' + section['line_name'] + '（' + str(section['time']) + '分 ' + str(section['distance']) + 'm）\n'
+    ret = {
+        'time': item['summary']['move']['time'],
+        'fare': 0 if not 'fare' in item['summary']['move'] else item['summary']['move']['fare']['unit_0'],
+        'route': route,
+    }
     return jsonify(ret)
 
 if __name__ == '__main__':
