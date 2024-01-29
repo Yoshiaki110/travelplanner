@@ -158,24 +158,34 @@ def tp_tsp(table):
     # コンパイル
     qubo, offset = Compile(H).get_qubo()
     print(f'offset\n{offset}')
-
+    '''
     # サンプラー選択
     solver = sampler.SASampler()
     # サンプリング
     result = solver.run(qubo, shots=100)
+    '''
+    sp = []
+    for i in range(N):
+        for j in range(N):
+            sp.append("q" + str(i) + "_" + str(j))
+    Q = {}
+    for i in range(N*N):
+        for j in range(N*N):
+            if ((sp[i], sp[j]) in qubo):
+                Q[(i, j)] = qubo[(sp[i], sp[j])]
 
-    # 上位5件
-    for r in result[:1]:
-        print(r)
-    print(np.array(list(r[0].values())).reshape(N, N))
-    #print(np.array(list(r[0])).reshape(N, N))
+    f = BinaryPoly(Q)
+    model0 = BinaryQuadraticModel(f)
+
+    # マシンを実行
+    solver = Solver(client)  # ソルバーに使用するクライアントを設定
+    result = solver.solve(model0)  # 問題を入力してマシンを実行
 
     # 判り易いように
     route = []
     rroute = []
     details = []
-    arr = np.array(list(result[0][0].values())).reshape(N, N)
-    #arr = np.array(list(result[0][0])).reshape(N, N)
+    arr = np.array([result[0].values[j] for j in range(N*N)]).reshape(N, N)
     for i in arr:
         if 1 in i:
             idx = np.where(i==1)[0][0]

@@ -141,7 +141,11 @@
         const res = await fetch("/route?start=" + start + "&startName=" + startName + "&goal=" + goal + "&goalName=" + goalName);
         //console.log(a); // => Response
         const ret = await res.json();
-        alert(ret.route);
+        msg = ret.route;
+        if (ret.fare) {
+          msg += '\n\n料金　' + ret.fare + '円';
+        }
+        alert(msg);
       }
       // コースの１行をボタン表示
       function printrowbutton(r, areas) {
@@ -264,7 +268,7 @@
             areas.push([_areas[i][0], _areas[i][1], _areas[i][2]]);
           }
         }
-/*
+
         // 表を作成
         // 初期化
         var table = [];
@@ -278,9 +282,9 @@
         for (var i = 0; i < areas.length; i++) {
           for (var j = 1 + i; j < areas.length; j++) {
             //console.log(areas[i], areas[j]);
-            const start = areas[i][1][0] + ',' + areas[i][1][1];
+            const start = areas[i][2];
             const startName = areas[i][0];
-            const goal = areas[j][1][0] + ',' + areas[j][1][1];
+            const goal = areas[j][2];
             const goalName = areas[j][0];
             const res = await fetch("/route?start=" + start + "&startName=" + startName + "&goal=" + goal + "&goalName=" + goalName);
             //console.log(a); // => Response
@@ -298,14 +302,14 @@
           }
           console.log(str);
         }
-        */
+        /*
         var table = [
           [0 ,64, 43, 62, 9],
           [64, 0, 98, 94, 64],
           [43, 98, 0, 62, 44],
           [62, 94, 62, 0, 64],
           [9, 64, 44, 64, 0],
-        ];
+        ];*/
         const method = "POST";
         const headers = {
           'Accept': 'application/json',
