@@ -91,9 +91,16 @@ def tp_route():
     print("** /route " + request.method)
     req = request.args
     start = req.get("start")
-    startName = req.get("startName")
+    #startName = req.get("startName")
     goal = req.get("goal")
-    goalName = req.get("goalName")
+    #goalName = req.get("goalName")
+
+    path = './route/' + start + '_' + goal + '.json'
+    if os.path.isfile(path):
+        with open(path, "r", encoding="utf-8") as f:
+            ret = json.load(f)
+            return jsonify(ret)
+
     now = datetime.datetime.now()
     querystring = {
       "start": start,
@@ -118,8 +125,8 @@ def tp_route():
         if section['type'] == 'point':
             print(section['name'])
             name = section['name']
-            name = startName if name == 'start' else name
-            name = goalName if name == 'goal' else name
+            #name = startName if name == 'start' else name
+            #name = goalName if name == 'goal' else name
             route += name + '\n'
         if section['type'] == 'move':
             print('', section['line_name'], section['distance'], section['time'] )
@@ -129,6 +136,8 @@ def tp_route():
         'fare': 0 if not 'fare' in item['summary']['move'] else item['summary']['move']['fare']['unit_0'],
         'route': route,
     }
+    with open(path, 'w', encoding="utf-8") as f:
+        json.dump(ret, f, indent=2, ensure_ascii=False)
     return jsonify(ret)
 
 if __name__ == '__main__':
