@@ -10,6 +10,25 @@
   <body>
     <div class="card card-body">
       <div>
+        <!--button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
+          Launch demo modal
+        </button-->
+        <div class="modal fade" id="modal1" tabindex="-1"
+              role="dialog" aria-labelledby="label1" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="label1">案内</h5>
+              </div>
+              <div id="route" class="modal-body">
+                ないよう
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-12">
             <button type="button" class="btn btn-light btn-block" onclick="get_position();">現在地設定</button>
@@ -93,6 +112,7 @@
       const elm_radio = document.getElementById('radioForm');
       const elm_around = document.getElementById('around');
       const elm_sel02 = document.getElementById('sel02');
+      const elm_route = document.getElementById('route');
 
       function areaname(i, areas) {
         return areas[i][0];
@@ -134,7 +154,8 @@
         if (ret.fare) {
           msg += '\n料金　' + ret.fare + '円';
         }
-        alert(msg);
+        //alert(msg);
+        elm_route.innerText = msg;
       }
       // コースの１行をボタン表示
       function printrowbutton(r, areas) {
@@ -147,6 +168,9 @@
         elm_form_check_button.style.textAlign = "left";
         elm_form_check_button.textContent = txt;
         elm_form_check_button.onclick = function() { routedetail(r, areas); };
+        elm_form_check_button.type = "button";
+        elm_form_check_button.setAttribute('data-toggle', 'modal');
+        elm_form_check_button.setAttribute('data-target', '#modal1');
         elm_form_check.appendChild(elm_form_check_button);
         elm_selareas.appendChild(elm_form_check);
       }

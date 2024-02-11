@@ -130,7 +130,7 @@ def tp_route():
             route += name + '\n'
         if section['type'] == 'move':
             print('', section['line_name'], section['distance'], section['time'] )
-            route += ' ' + section['line_name'] + '（' + str(section['time']) + '分 ' + str(section['distance']) + 'm）\n'
+            route += '　' + section['line_name'] + '（' + str(section['time']) + '分 ' + str(section['distance']) + 'm）\n'
     ret = {
         'time': item['summary']['move']['time'],
         'fare': 0 if not 'fare' in item['summary']['move'] else item['summary']['move']['fare']['unit_0'],
