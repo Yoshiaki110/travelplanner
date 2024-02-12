@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>トラベルプランナー</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  </head>
+  <body>
+    <div class="card card-body">
+      <div>
+        <!--button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
+          Launch demo modal
+        </button-->
+        <div class="modal fade" id="modal1" tabindex="-1"
+              role="dialog" aria-labelledby="label1" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="label1">案内</h5>
+              </div>
+              <div id="route" class="modal-body">
+                ないよう
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <button type="button" class="btn btn-light btn-block" onclick="get_position();">現在地設定</button>
+          </div>
+
+        </div>
+        <div class="col-12">
+          <div class="form-row" style="font-size: small">
+            <div class="col-8">
+              <div class="form-check">
+                <label class="form-check-label">経由地</label>
+              </div>
+            </div>
+            <label class="col-2">滞在時間</label>
+            <label class="col-2">優先度(1-3)</label>
+          </div>
+        
+          <div id="areas" class="form-row"></div>
+
+          <div class="form-group">
+            <label for="sel02">到着地:</label>
+            <select id="sel02" class="custom-select">
+              <option>京都駅</option>
+              <option>京都東急ホテル</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="col-4">
+              <div class="form-check">
+                <label class="form-check-label">期限</label>
+              </div>
+            </div>
+            <label class="col-2">
+              <input class="form-control form-control-sm" type="number" id="hh" min="0" max="23" maxlength="2">
+            </label>
+            <label class="col-1">：</label>
+            <label class="col-2">
+              <input class="form-control form-control-sm" type="number" id="mm" min="0" max="59" maxlength="2">
+            </label>
+          </div>
+
+          
+          <p>
+            <button type="button" class="btn btn-primary btn-block" onclick="chg_cb();">ルート計算</button>
+          </p>
+
+        </div>
+        <div class="col-12">
+          おすすめのコース
+          <div id="selareas"></div>
+        </div>
+      </div>      
+      <div id="map" style="width:100%; height:500px"></div>
+      <div class="form-group">
+        <label for="around">周辺情報:</label>
+        <textarea id="around" class="form-control" readonly></textarea>
+        <br />
+        <button type="button" class="btn btn-primary btn-block" onclick="guidance();">周辺情報の音声案内</button>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLEMAP_KEY }}&libraries=places&callback=initMap&v=weekly"
+      defer
+    ></script>
+    <script>
+      var _map = null;
+      var _flightPath = null;
+      var _latLng = null;
+      
+      function initMap() {
+        _map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 12,
+          center: { lat: 34.9875936, lng: 135.7567649 },
+          mapTypeId: "terrain",
+        });
+        google.maps.event.addListener(_map, 'click', click_map);
+      }
+      window.initMap = initMap;
+
+      var _areas = [
+        ["京都東急ホテル", 0, [34.9951359, 135.7490678], [0, 6.1, 2.1, 1.5, 3.1, 8.7, 4.7, 6.9, 2.3, 6.6, 1.5]],
+        ["金閣寺", 90, [35.0393744, 135.7266682], [6.1, 0, 7.3, 7.5, 8.6, 7.9, 10.7, 6.7, 4.3, 3.2, 7.5]],
+        ["東寺", 60, [34.9802498, 135.7475844], [2.1, 7.3, 0, 1.5, 4.4, 9.3, 3.4, 8.4, 3.8, 8.2, 1]],
+        ["京都タワー", 60, [34.9875936, 135.7567649], [1.5, 7.5, 1.5, 0, 2.9, 9.8, 3.2, 6.9, 3.5, 6.7, 0.1]],
+        ["清水寺", 120, [34.9946706,135.7820861], [3.1, 8.6, 4.4, 2.9, 0, 11.4, 4, 5, 4.6, 6.5, 2.8]],
+        ["嵐山", 120, [35.0168187, 135.6713013], [8.7, 7.9, 9.3, 9.8, 11.4, 0, 12.5, 13, 8, 11, 9.9]],
+        ["伏見稲荷", 60, [34.9699515, 135.7709048], [4.7, 10.7, 3.4, 3.2, 4, 12.5, 0, 8.1, 6.7, 9.3, 2.8]],
+        ["銀閣寺", 60, [35.0272541, 135.7945173], [6.9, 6.7, 8.4, 6.9, 5, 13, 8.1, 0, 5.6, 4.3, 6.8]],
+        ["二条城", 60, [35.0138344, 135.7434714], [2.3, 4.3, 3.8, 3.5, 4.6, 8, 6.7, 5.6, 0, 4.4, 3.6]],
+        ["京都府立植物園", 120, [35.0487413, 135.7601605], [6.6, 3.2, 8.2, 6.7, 6.5, 11, 9.3, 4.3, 4.4, 0, 6.7]],
+        ["京都駅", 0, [34.9858534, 135.7561971], [1.5, 7.5, 1, 0.1, 2.8, 9.9, 2.8, 6.8, 3.6, 6.7, 0]],
+      ];
+      const elm_areas = document.getElementById("areas");
+      const elm_selareas = document.getElementById("selareas");
+      const elm_radio = document.getElementById('radioForm');
+      const elm_around = document.getElementById('around');
+      const elm_sel02 = document.getElementById('sel02');
+      const elm_route = document.getElementById('route');
+      let limit = new Date();
+      limit.setMinutes(limit.getMinutes() + 60 * 3);
+
+      function areaname(i, areas) {
+        return areas[i][0];
+      }
+      function areatime(i, areas) {
+        return areas[i][1];
+      }
+
+      // コースの１行を表示
+      function printrow(txt) {
+        elm_form_check = document.createElement("div");
+        elm_form_check.className = "form-check";
+        elm_form_check_label = document.createElement("label");
+        elm_form_check_label.textContent = txt;
+        elm_form_check.appendChild(elm_form_check_label);
+        elm_selareas.appendChild(elm_form_check);
+      }
+      async function routedetail(r, areas) {
+        var start = "";
+        var startName = "";
+        var goal = "";
+        var goalName = "";
+        for (var i = 0; i < areas.length; i++) {
+          if (areaname(r['from'], areas) == areas[i][0]) {
+            start = areas[i][2];
+            startName = areas[i][0];
+          }
+          if (areaname(r['to'], areas) == areas[i][0]) {
+            goal = areas[i][2];
+            goalName = areas[i][0];
+          }
+        }
+        const res = await fetch("/route?start=" + start + "&goal=" + goal);
+        //console.log(a); // => Response
+        const ret = await res.json();
+        msg = ret.route;
+        msg = msg.replace('start', startName);
+        msg = msg.replace('goal', goalName);
+        if (ret.fare) {
+          msg += '\n料金　' + ret.fare + '円';
+        }
+        //alert(msg);
+        elm_route.innerText = msg;
+      }
+      // コースの１行をボタン表示
+      function printrowbutton(r, areas) {
+        var txt = areaname(r['from'], areas) + '～' + areaname(r['to'], areas) + '(' + r['time'] + '分)';
+        elm_form_check = document.createElement("div");
+        elm_form_check.className = "form-check";
+        elm_form_check_button = document.createElement("button");
+        elm_form_check_button.type = "button";
+        elm_form_check_button.className = "btn btn-light btn-block";
+        elm_form_check_button.style.textAlign = "left";
+        elm_form_check_button.textContent = txt;
+        elm_form_check_button.onclick = function() { routedetail(r, areas); };
+        elm_form_check_button.type = "button";
+        elm_form_check_button.setAttribute('data-toggle', 'modal');
+        elm_form_check_button.setAttribute('data-target', '#modal1');
+        elm_form_check.appendChild(elm_form_check_button);
+        elm_selareas.appendChild(elm_form_check);
+      }
+
+      function strTime(date) {
+        var hour_str = date.getHours();
+        var minute_str = date.getMinutes();
+        hour_str = ('0' + hour_str).slice(-2);
+        minute_str = ('0' + minute_str).slice(-2);
+        return hour_str + ":" + minute_str;
+      };
+
+      // コースを表示
+      function printroute(ret, areas) {
+        if (ret['details'].length == 0) {
+          printrow("エラー");
+          return;
+        }
+        //var val = elm_radio.elements['radio'].value;
+        let date = new Date();
+        var lastname = "";
+        var i = 0;
+        for (var r of ret['details']) {
+          ++i;
+          if (i == 1) {
+            printrow(areaname(r['from'], areas) + '　' + strTime(date) + '発');
+          } else {
+            time1 = strTime(date)
+            date.setMinutes(date.getMinutes() + Number(areatime(r['from'], areas)));
+            time2 = strTime(date)
+            printrow(areaname(r['from'], areas) + '　' + time1 + '着　' + time2 + '発(滞在' + areatime(r['from'], areas) + '分)');
+          }
+          date.setMinutes(date.getMinutes() + r['time']);
+          printrowbutton(r, areas);
+
+          lastname = areaname(r['to'], areas);
+        }
+        //console.log(lastname);
+        printrow(lastname + '　' + strTime(date) + '着');
+        return date;
+      }
+
+      // コースを地図上に表示
+      function displayroute(ret, areas) {
+        coordinates = [];
+        for (var r of ret['route']) {
+          pos = _areas[r][2];
+          coordinates.push({lat: areas[r][2][0], lng: areas[r][2][1]});
+        }
+        if (_flightPath) {
+          _flightPath.setMap(null);
+          _flightPath = null;
+        }
+        if (coordinates.length > 1) {
+          _flightPath = new google.maps.Polyline({
+            path: coordinates,
+            geodesic: true,
+            strokeColor: "#FF0000",
+            strokeOpacity: 1.0,
+            strokeWeight: 2,
+          });
+          _flightPath.setMap(_map);
+        }
+      }
+
+      // ルート計算のテスト
+      async function chg_cb9() {
+        var areas = [1,2,3,4];
+        // 初期化
+        var table = [];
+        for (var i = 0; i < areas.length; i++) {
+          table[i] = [];
+          for (var j = 0; j < areas.length; j++) {
+            table[i][j] = 0;
+          }
+        }
+        for (var i = 0; i < areas.length; i++) {
+          for (var j = 1 + i; j < areas.length; j++) {
+            //console.log(areas[i], areas[j]);
+            const res = await fetch("/route?start=" + i + "&goal=" + j);
+            //console.log(a); // => Response
+            const ret = await res.json();
+            //console.log(ret.result); // => json
+            table[i][j] = ret.result;
+            table[j][i] = ret.result;
+          }
+        }
+        for (var i = 0; i < areas.length; i++) {
+          var str = "";
+          for (var j = 0; j < areas.length; j++) {
+            str = str + " " + table[j][i];
+          }
+          console.log(str);
+        }
+
+      }
+
+      // ルート計算
+      async function chg_cb() {
+        for (var level = 1; level <= 3; level++) {
+          // 消す
+          while (elm_selareas.firstChild) {
+            elm_selareas.removeChild(elm_selareas.firstChild);
+          }
+
+          // areasに経由地の座標を入れる
+          var areas = []                   // [['地点A',[34.99, 135.99]], ['地点A',[34.99, 135.99]]]
+          // 地図の中心座標(現在地)を追加
+          var latLng = _map.getCenter();
+          console.log("現在地", [latLng.lat(), latLng.lng()]);
+          areas.push(["現在地", 0, [latLng.lat(), latLng.lng()]]);
+          // 選択している経由地を追加
+          for (var i = 1; i < _areas.length - 1; i++) {
+            var elmx_cb = document.getElementById("area" + i);
+            var priority = document.getElementById("priority_val" + i).value;
+            if (elmx_cb.checked && priority >= level) {
+              var elmx_val = document.getElementById("area_val" + i);
+              console.log(_areas[i][0], _areas[i][2]);
+              areas.push([_areas[i][0], elmx_val.value, _areas[i][2]]);
+            }
+          }
+          // 選択している到着地を追加
+          for (var i = 0; i < _areas.length; i++) {
+            if (elm_sel02.value == _areas[i][0]) {
+              console.log(_areas[i][0], _areas[i][2]);
+              areas.push([_areas[i][0], _areas[i][1], _areas[i][2]]);
+            }
+          }
+
+          // 表を作成
+          // 初期化
+          var table = [];
+          for (var i = 0; i < areas.length; i++) {
+            table[i] = [];
+            for (var j = 0; j < areas.length; j++) {
+              table[i][j] = 0;
+            }
+          }
+
+          for (var i = 0; i < areas.length; i++) {
+            for (var j = 1 + i; j < areas.length; j++) {
+              //console.log(areas[i], areas[j]);
+              const start = areas[i][2];
+              //const startName = areas[i][0];
+              const goal = areas[j][2];
+              //const goalName = areas[j][0];
+              //const res = await fetch("/route?start=" + start + "&startName=" + startName + "&goal=" + goal + "&goalName=" + goalName);
+              const res = await fetch("/route?start=" + start + "&goal=" + goal);
+              //console.log(a); // => Response
+              const ret = await res.json();
+              //console.log(ret.result); // => json
+              table[i][j] = ret.time;
+              table[j][i] = ret.time;
+            }
+          }
+          // 確認用に表示
+          for (var i = 0; i < areas.length; i++) {
+            var str = "";
+            for (var j = 0; j < areas.length; j++) {
+              str = str + " " + table[j][i];
+            }
+            console.log(str);
+          }
+          /*
+          var table = [
+            [0 ,64, 43, 62, 9],
+            [64, 0, 98, 94, 64],
+            [43, 98, 0, 62, 44],
+            [62, 94, 62, 0, 64],
+            [9, 64, 44, 64, 0],
+          ];*/
+          const method = "POST";
+          const headers = {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          };
+          const body = JSON.stringify({table: table});
+          const res = await fetch("/tsp", {method, headers, body});
+          const myjson = await res.json();
+          console.log(myjson);
+          limit.setHours(document.getElementById("hh").value);
+          limit.setMinutes(document.getElementById("mm").value);
+          var calcdate = limit;
+          if ('details' in myjson) {
+            console.log("成功")
+            calcdate = printroute(myjson, areas);
+            displayroute(myjson, areas);
+          } else {
+            printrow("エラー");
+            break;
+          }
+          if (calcdate.getTime() < limit.getTime()) {
+            break;
+          }
+          if (level == 3) {
+            printrow("時間オーバー");
+          }
+        }
+      }
+
+      function chg_cb1() {
+        // 消す
+        while (elm_selareas.firstChild) {
+          elm_selareas.removeChild(elm_selareas.firstChild);
+        }
+        indexs = []
+        table = []
+        for (var i = 0; i < _areas.length; i++) {
+          // 全テーブル作成
+          table.push(_areas[i][3]);
+          //　削除する番号リスト作成
+          if (i == 0) {
+            continue;
+          }
+//          if (i == _areas.length - 1) {
+//            indexs.push(i);
+//            break;
+//          }
+          var elmx_cb = document.getElementById("area" + i);
+          if (elmx_cb && !elmx_cb.checked) {
+            indexs.push(i);
+          }
+        }
+        if (indexs.length >= _areas.length - 1) {
+          return;
+        }
+        const obj = {indexs: indexs, table: table};
+        const method = "POST";
+        const body = JSON.stringify(obj);
+        const headers = {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        };
+        fetch("/api", {method, headers, body})
+          .then(function (response) {
+            return response.json();
+          }).then(function (myjson) {
+            console.log(myjson);
+            ret = {
+              'route': [0, 2, 4, 3, 1, 0],
+              'details': [
+                {'from': 0, 'to': 2, 'distance': 20},
+                {'from': 2, 'to': 4, 'distance': 20},
+                {'from': 4, 'to': 3, 'distance': 10},
+                {'from': 3, 'to': 1, 'distance': 30},
+                {'from': 1, 'to': 0, 'distance': 30}
+              ]
+            };
+            if ('details' in myjson) {
+              printroute(myjson);
+              displayroute(myjson);
+            } else {
+              printrow("エラー");
+            }
+          });
+      }
+
+      // クリックした場所を地図の中心にする
+      function click_map(event) {
+        _map.setCenter(event.latLng);
+      }
+
+      // Google Place APIで観光地情報を取得する場合
+      function guidance() {
+        var latLng = _map.getCenter();             // 地図の中心座標を取得
+        var request = {
+          location: latLng,
+          radius: '500',
+          type: ['tourist_attraction']
+        };
+        _latLng = latLng;
+        service = new google.maps.places.PlacesService(_map);
+        service.nearbySearch(request, callback);
+      }
+
+      // https://developers-jp.googleblog.com/2019/12/how-calculate-distances-map-maps-javascript-api.html
+      function distance(p1, p2) {
+        var R = 6371.0710;
+        var rlat1 = p1.lat() * (Math.PI/180);
+        var rlat2 = p2.lat() * (Math.PI/180);
+        var difflat = rlat2-rlat1;
+        var difflon = (p2.lng()-p1.lng()) 
+                    * (Math.PI/180);
+
+        var d = 2 * R 
+        * Math.asin(Math.sqrt(Math.sin(difflat / 2) * Math.sin(difflat / 2)
+        + Math.cos(rlat1) * Math.cos(rlat2)
+        * Math.sin(difflon / 2) * Math.sin(difflon / 2)));
+        return d;
+      }
+
+      // 指定近くの観光地リストが返る
+      function callback(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+          if (results.length) {
+            var d = distance(_latLng, results[0]['geometry']['location']);
+            console.log(results[0].name + ' ' + d + 'km');
+            elm_around.value = results[0].name + '（ここから ' + (Math.round(d * 10) / 10) + 'km）'
+
+            fetch("/guida?name=" + results[0].name + "&distance=" + d)
+              .then(function (response) {
+                return response.json();
+              }).then(function (myjson) {
+                console.log(myjson);
+                elm_around.value = results[0].name + '（ここから ' + (Math.round(d * 10) / 10) + 'km）\n' + myjson['text']
+
+                var msg = new SpeechSynthesisUtterance(myjson['text']);
+                window.speechSynthesis.speak(msg);
+              });
+          }
+        }
+      }
+
+      // ChatGPTで観光地情報を取得する場合（清水寺と金閣寺しか出てこない）
+      function click_map2(event) {
+        const obj = {lat: event.latLng.lat(), lng: event.latLng.lng()};
+        const body = JSON.stringify(obj);
+        const headers = {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        };
+        fetch("/guida?lat=" + event.latLng.lat() + "&lng=" + event.latLng.lng())
+          .then(function (response) {
+            return response.json();
+          }).then(function (myjson) {
+            console.log(myjson);
+            elm_around.value = myjson['text']
+          });
+      }
+
+      function setLocation(pos) {
+        lat = pos.coords.latitude;
+        lon = pos.coords.longitude;
+        latlon = new google.maps.LatLng(lat, lon);
+        _map.setCenter(latlon);
+      }
+
+      function showErr(err) {
+        switch(err.code) {
+          case 1 : alert("位置情報の利用が許可されていません"); break;
+          case 2 : alert("デバイスの位置が判定できません"); break;
+          case 3 : alert("タイムアウトしました"); break;
+          default : alert(err.message);
+        }
+      }
+      // 位置情報を取得
+      function get_position(event) {
+        if ("geolocation" in navigator) {
+          var opt = {
+            "enableHighAccuracy": true,
+            "timeout": 10000,
+            "maximumAge": 0,
+          };
+          navigator.geolocation.getCurrentPosition(setLocation, showErr, opt);
+        } else {
+          alert("ブラウザが位置情報取得に対応していません");
+        }
+      }
+
+      function setEndTime() {
+        let date = new Date();
+        date.setMinutes(date.getMinutes() + 60 * 3);
+        let strdate = strTime(date);
+        let hh = strdate.slice(0, 2);
+        document.getElementById("hh").value = hh - 0;
+        let mm = strdate.slice(3, 5);
+        document.getElementById("mm").value = mm - 0;
+      }
+
+      for (var i = 0; i < _areas.length; i++) {
+        if (i == 0 || i == _areas.length - 1) {
+          continue;
+        }
+        elm_div = document.createElement("div");
+        elm_div.className = "col-8";
+
+        elm_form_check = document.createElement("div");
+        elm_form_check.className = "form-check";
+
+        elm_form_check_check = document.createElement("input");
+        elm_form_check_check.className = "form-check-input";
+        elm_form_check_check.type = "checkbox";
+        elm_form_check_check.setAttribute('id', "area" + i);
+        //elm_form_check_input.onchange = chg_cb;
+
+        elm_form_check_label = document.createElement("label");
+        elm_form_check_label.className = "form-check-label";
+        elm_form_check_label.htmlFor = "area" + i;
+        elm_form_check_label.textContent = _areas[i][0];
+
+        elm_form_check_input1 = document.createElement("input");
+        elm_form_check_input1.className = "form-control form-control-sm col-2";
+        elm_form_check_input1.type = "number";
+        elm_form_check_input1.value = _areas[i][1];
+        elm_form_check_input1.setAttribute('id', "area_val" + i);
+
+        elm_form_check_input2 = document.createElement("input");
+        elm_form_check_input2.className = "form-control form-control-sm col-2";
+        elm_form_check_input2.type = "number";
+        elm_form_check_input2.value = 3;
+        elm_form_check_input2.setAttribute('id', "priority_val" + i);
+        elm_form_check_input2.setAttribute('min', "1" + i);
+        elm_form_check_input2.setAttribute('max', "3" + i);
+        elm_form_check_input2.setAttribute('maxlength', "1" + i);
+
+        elm_form_check.appendChild(elm_form_check_check);
+        elm_form_check.appendChild(elm_form_check_label);
+        elm_div.appendChild(elm_form_check);
+        elm_areas.appendChild(elm_div);
+        elm_areas.appendChild(elm_form_check_input1);
+        elm_areas.appendChild(elm_form_check_input2);
+      }
+      setEndTime();
+    </script>
+  </body>
+</html>

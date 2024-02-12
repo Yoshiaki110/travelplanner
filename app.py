@@ -44,6 +44,14 @@ def tp_realtime():
     resp = make_response(render_template("realtime.html", GOOGLEMAP_KEY = GOOGLEMAP_KEY))
     return resp
 
+@app.route('/navi')
+def tp_navi():
+    print("** /navi " + request.method)
+    #tp.tp_init(DWAVE_KEY)
+    tp.tp_init(AMPLIFY_KEY)
+    resp = make_response(render_template("navi.html", GOOGLEMAP_KEY = GOOGLEMAP_KEY))
+    return resp
+
 @app.route('/guida')
 def tp_guidance():
     print("** /guida " + request.method)
