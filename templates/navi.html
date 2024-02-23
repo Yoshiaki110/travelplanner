@@ -18,9 +18,9 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="label1">案内</h5>
+                <h5 class="modal-title" id="dlg-ttl">案内</h5>
               </div>
-              <div id="route" class="modal-body">
+              <div id="dlg-msg" class="modal-body">
                 ないよう
               </div>
               <div class="modal-footer">
@@ -113,24 +113,25 @@
       window.initMap = initMap;
 
       var _areas = [
-        ["京都東急ホテル", 0, [34.9951359, 135.7490678], [0, 6.1, 2.1, 1.5, 3.1, 8.7, 4.7, 6.9, 2.3, 6.6, 1.5]],
-        ["金閣寺", 90, [35.0393744, 135.7266682], [6.1, 0, 7.3, 7.5, 8.6, 7.9, 10.7, 6.7, 4.3, 3.2, 7.5]],
-        ["東寺", 60, [34.9802498, 135.7475844], [2.1, 7.3, 0, 1.5, 4.4, 9.3, 3.4, 8.4, 3.8, 8.2, 1]],
-        ["京都タワー", 60, [34.9875936, 135.7567649], [1.5, 7.5, 1.5, 0, 2.9, 9.8, 3.2, 6.9, 3.5, 6.7, 0.1]],
-        ["清水寺", 120, [34.9946706,135.7820861], [3.1, 8.6, 4.4, 2.9, 0, 11.4, 4, 5, 4.6, 6.5, 2.8]],
-        ["嵐山", 120, [35.0168187, 135.6713013], [8.7, 7.9, 9.3, 9.8, 11.4, 0, 12.5, 13, 8, 11, 9.9]],
-        ["伏見稲荷", 60, [34.9699515, 135.7709048], [4.7, 10.7, 3.4, 3.2, 4, 12.5, 0, 8.1, 6.7, 9.3, 2.8]],
-        ["銀閣寺", 60, [35.0272541, 135.7945173], [6.9, 6.7, 8.4, 6.9, 5, 13, 8.1, 0, 5.6, 4.3, 6.8]],
-        ["二条城", 60, [35.0138344, 135.7434714], [2.3, 4.3, 3.8, 3.5, 4.6, 8, 6.7, 5.6, 0, 4.4, 3.6]],
-        ["京都府立植物園", 120, [35.0487413, 135.7601605], [6.6, 3.2, 8.2, 6.7, 6.5, 11, 9.3, 4.3, 4.4, 0, 6.7]],
-        ["京都駅", 0, [34.9858534, 135.7561971], [1.5, 7.5, 1, 0.1, 2.8, 9.9, 2.8, 6.8, 3.6, 6.7, 0]],
+        ["京都東急ホテル", 0, [34.9951359, 135.7490678], '京都駅近くの静かな立地で、モダンな和の空間と洗練された客室を提供しています。'],
+        ["金閣寺", 90, [35.0393744, 135.7266682], '金閣寺（正式名称は鹿苑寺）は、日本の観光名所で、京都にある臨済宗相国寺派の山荘です。特に有名なのは金色に輝く舎利殿「金閣」で、世界遺産にも登録されています123。この美しい寺院は、足利三代将軍義満によって造営され、北山文化の中心地として栄えました。金閣寺は、銀閣寺と共に多くの拝観者に親しまれています。'],
+        ["東寺", 60, [34.9802498, 135.7475844], '東寺は、京都市南区九条町にある世界遺産の真言宗総本山で、国宝や名宝を有する寺院です。創建から約1200年の歴史を持ち、本尊は薬師如来。八幡山とも呼ばれ、真言密教の根本道場として栄えました'],
+        ["京都タワー", 60, [34.9875936, 135.7567649], '京都タワーは、京都の市街地を360度見渡せる展望室とおいしいレストラン、ショッピング、宿泊、お土産などを提供する観光スポットです。地上100メートルからの眺望や地下131メートルからの展望室、地下2階のショップ、ホテルなど、京都タワーで楽しむことができます'],
+        ["清水寺", 120, [34.9946706,135.7820861], '清水寺は、京都市東山区にある北法相宗の大本山で、音羽山とも呼ばれています。本尊は十一面千手観世音菩薩で、国宝の本堂や重要文化財の三重塔などがあります。世界遺産にも登録されています。季節を問わず多くの参詣者が訪れ、京都の有名な観光名所です。'],
+        ["嵐山", 120, [35.0168187, 135.6713013], '嵐山は、京都市西部にある標高382メートルの山で、四季折々の風景が楽しめる名勝地です。桜や紅葉の名所で、渡月橋が象徴的。観光スポットとしても有名で、多くの寺社が立地しています'],
+        ["伏見稲荷", 60, [34.9699515, 135.7709048], '伏見稲荷大社は、京都市にある稲荷神社の総本宮で、商売繁盛や家内安全の神として信仰されています。有名な千本鳥居が特徴的です'],
+        ["銀閣寺", 60, [35.0272541, 135.7945173], '銀閣寺は、京都の東山にある臨済宗相国寺派の禅寺で、将軍足利義政が祖父の金閣寺にならって造営した山荘「東山殿」が発祥。美しい庭園と建築様式で知られ、観音殿（国宝）は銀箔ではなく黒漆で覆われています'],
+        ["二条城", 60, [35.0138344, 135.7434714], '二条城は、京都市にある日本の城で、江戸時代の徳川将軍家の平城であり、近代においては皇室の離宮の役割を担っていました1。元離宮二条城は、徳川家康が京都滞在中の宿所として築城し、優美な御殿や庭園、絢爛な障壁画が魅力です'],
+        ["京都府立植物園", 120, [35.0487413, 135.7601605], '京都府立植物園は、日本で最初の公立植物園で、1924年に開園しました。広大な敷地には約12,000種類、約12万本の植物が植えられ、四季折々の花や木々を楽しめます。観覧温室や洋風庭園もあります'],
+        ["京都駅", 0, [34.9858534, 135.7561971], '京都駅は、京都府京都市下京区にある、JR西日本・JR東海・近畿日本鉄道（近鉄）・京都市交通局（京都市営地下鉄）のターミナル駅です。新幹線停車駅であり、観光の拠点となっています。烏丸口の駅ビルは、建築家原広司氏の設計で、全国最大級の大規模複合施設です'],
       ];
       const elm_areas = document.getElementById("areas");
       const elm_selareas = document.getElementById("selareas");
       const elm_radio = document.getElementById('radioForm');
       const elm_around = document.getElementById('around');
       const elm_sel02 = document.getElementById('sel02');
-      const elm_route = document.getElementById('route');
+      const elm_dlg_ttl = document.getElementById('dlg-ttl');
+      const elm_dlg_msg = document.getElementById('dlg-msg');
       let limit = new Date();
       limit.setMinutes(limit.getMinutes() + 60 * 3);
 
@@ -175,7 +176,8 @@
           msg += '\n料金　' + ret.fare + '円';
         }
         //alert(msg);
-        elm_route.innerText = msg;
+        elm_dlg_ttl.innerText = 'ルート案内';
+        elm_dlg_msg.innerText = msg;
       }
       // コースの１行をボタン表示
       function printrowbutton(r, areas) {
@@ -560,6 +562,16 @@
         document.getElementById("mm").value = mm - 0;
       }
 
+      function areadetail(name) {
+        for (area of _areas) {
+          if (name == area[0]) {
+            elm_dlg_ttl.innerText = area[0];
+            elm_dlg_msg.innerText = area[3];
+            break;
+          }
+        }
+      }
+
       for (var i = 0; i < _areas.length; i++) {
         if (i == 0 || i == _areas.length - 1) {
           continue;
@@ -576,10 +588,22 @@
         elm_form_check_check.setAttribute('id', "area" + i);
         //elm_form_check_input.onchange = chg_cb;
 
-        elm_form_check_label = document.createElement("label");
-        elm_form_check_label.className = "form-check-label";
-        elm_form_check_label.htmlFor = "area" + i;
+        //elm_form_check_label = document.createElement("label");
+        //elm_form_check_label.className = "form-check-label";
+        //elm_form_check_label.htmlFor = "area" + i;
+        //elm_form_check_label.textContent = _areas[i][0];
+        elm_form_check_label = document.createElement("button");
+        elm_form_check_label.type = "button";
+        elm_form_check_label.className = "btn btn-light btn-block";
+        //elm_form_check_label.style.textAlign = "left";
         elm_form_check_label.textContent = _areas[i][0];
+        elm_form_check_label.onclick = function(arg) {
+          areadetail(arg.target.textContent)
+        };
+        elm_form_check_label.type = "button";
+        elm_form_check_label.setAttribute('data-toggle', 'modal');
+        elm_form_check_label.setAttribute('data-target', '#modal1');
+        elm_form_check_label.setAttribute('style', 'text-align: left;margin-bottom: 2px;padding-top: 1px;padding-bottom: 1px;margin-top: 2px;');
 
         elm_form_check_input1 = document.createElement("input");
         elm_form_check_input1.className = "form-control form-control-sm col-2";
