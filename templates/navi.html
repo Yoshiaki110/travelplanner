@@ -70,10 +70,12 @@
               <input class="form-control form-control-sm" type="number" id="mm" min="0" max="59" maxlength="2">
             </label>
           </div>
-
           
           <p>
-            <button type="button" class="btn btn-primary btn-block" onclick="chg_cb();">ルート計算</button>
+            <button id="calc-button" type="button" class="btn btn-primary btn-block" onclick="chg_cb();">
+              <span id="calc-spinner" class="spinner-border spinner-border-sm" hidden="hidden"></span>
+              ルート計算
+            </button>
           </p>
 
         </div>
@@ -132,8 +134,21 @@
       const elm_sel02 = document.getElementById('sel02');
       const elm_dlg_ttl = document.getElementById('dlg-ttl');
       const elm_dlg_msg = document.getElementById('dlg-msg');
+      const elm_calc_button = document.getElementById('calc-button');
+      const elm_calc_spinner = document.getElementById('calc-spinner');
       let limit = new Date();
       limit.setMinutes(limit.getMinutes() + 60 * 3);
+
+      // 実行中のスピナー表示
+      function executing(f) {
+        if (f) {
+          elm_calc_spinner.hidden = null;
+          elm_calc_button.disabled = "disabled";
+        } else {
+          elm_calc_spinner.hidden = "hidden";
+          elm_calc_button.disabled = null;
+        }
+      }
 
       function areaname(i, areas) {
         return areas[i][0];
@@ -292,6 +307,7 @@
 
       // ルート計算
       async function chg_cb() {
+        executing(true);
         for (var level = 1; level <= 3; level++) {
           // 消す
           while (elm_selareas.firstChild) {
@@ -388,9 +404,10 @@
             break;
           }
           if (level == 3) {
-            printrow("時間オーバー");
+            printrow("⚠ 時間オーバー");
           }
         }
+        executing(false);
       }
 
       function chg_cb1() {
