@@ -24,7 +24,7 @@
                 ないよう
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="diagmsg('','');">OK</button>
               </div>
             </div>
           </div>
@@ -33,33 +33,69 @@
           <div class="col-12">
             <button type="button" class="btn btn-light btn-block" onclick="get_position();">現在地設定</button>
           </div>
-
         </div>
-        <div class="col-12">
-          <div class="form-row" style="font-size: small">
-            <div class="col-8">
-              <div class="form-check">
-                <label class="form-check-label">経由地</label>
+
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="item1-tab" data-toggle="tab" href="#item1" role="tab" aria-controls="item1" aria-selected="true">観光地</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="item2-tab" data-toggle="tab" href="#item2" role="tab" aria-controls="item2" aria-selected="false">駅</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="item3-tab" data-toggle="tab" href="#item3" role="tab" aria-controls="item3" aria-selected="false">宿泊</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane fade show active" id="item1" role="tabpanel" aria-labelledby="item1-tab">
+            <div class="form-row" style="font-size: small">
+              <div class="col-8">
+                <div class="form-check">
+                  <label class="form-check-label">経由地</label>
+                </div>
               </div>
+              <label class="col-2">滞在時間</label>
+              <label class="col-2">優先度(1-3)</label>
             </div>
-            <label class="col-2">滞在時間</label>
-            <label class="col-2">優先度(1-3)</label>
+            <div id="areas1" class="form-row"></div>
           </div>
-        
-          <div id="areas" class="form-row"></div>
+          <div class="tab-pane fade" id="item2" role="tabpanel" aria-labelledby="item2-tab">
+            <div class="form-row" style="font-size: small">
+              <div class="col-8">
+                <div class="form-check">
+                  <label class="form-check-label">経由地</label>
+                </div>
+              </div>
+              <label class="col-2">滞在時間</label>
+              <label class="col-2">優先度(1-3)</label>
+            </div>
+            <div id="areas2" class="form-row"></div>
+          </div>
+          <div class="tab-pane fade" id="item3" role="tabpanel" aria-labelledby="item3-tab">
+            <div class="form-row" style="font-size: small">
+              <div class="col-8">
+                <div class="form-check">
+                  <label class="form-check-label">経由地</label>
+                </div>
+              </div>
+              <label class="col-2">滞在時間</label>
+              <label class="col-2">優先度(1-3)</label>
+            </div>
+            <div id="areas3" class="form-row"></div>
+          </div>
+        </div>
+
+        <div class="col-12">
 
           <div class="form-group">
-            <label for="sel02">到着地:</label>
-            <select id="sel02" class="custom-select">
-              <option>京都駅</option>
-              <option>京都東急ホテル</option>
-            </select>
+            <label for="arrival">到着地:</label>
+            <select id="arrival" class="custom-select"></select>
           </div>
 
           <div class="form-row">
             <div class="col-4">
               <div class="form-check">
-                <label class="form-check-label">期限</label>
+                <label class="form-check-label">到着期限</label>
               </div>
             </div>
             <label class="col-2">
@@ -115,29 +151,137 @@
       window.initMap = initMap;
 
       var _areas = [
-        ["京都東急ホテル", 0, [34.9951359, 135.7490678], '京都駅近くの静かな立地で、モダンな和の空間と洗練された客室を提供しています。'],
-        ["金閣寺", 90, [35.0393744, 135.7266682], '金閣寺（正式名称は鹿苑寺）は、日本の観光名所で、京都にある臨済宗相国寺派の山荘です。特に有名なのは金色に輝く舎利殿「金閣」で、世界遺産にも登録されています123。この美しい寺院は、足利三代将軍義満によって造営され、北山文化の中心地として栄えました。金閣寺は、銀閣寺と共に多くの拝観者に親しまれています。'],
-        ["東寺", 60, [34.9802498, 135.7475844], '東寺は、京都市南区九条町にある世界遺産の真言宗総本山で、国宝や名宝を有する寺院です。創建から約1200年の歴史を持ち、本尊は薬師如来。八幡山とも呼ばれ、真言密教の根本道場として栄えました'],
-        ["京都タワー", 60, [34.9875936, 135.7567649], '京都タワーは、京都の市街地を360度見渡せる展望室とおいしいレストラン、ショッピング、宿泊、お土産などを提供する観光スポットです。地上100メートルからの眺望や地下131メートルからの展望室、地下2階のショップ、ホテルなど、京都タワーで楽しむことができます'],
-        ["清水寺", 120, [34.9946706,135.7820861], '清水寺は、京都市東山区にある北法相宗の大本山で、音羽山とも呼ばれています。本尊は十一面千手観世音菩薩で、国宝の本堂や重要文化財の三重塔などがあります。世界遺産にも登録されています。季節を問わず多くの参詣者が訪れ、京都の有名な観光名所です。'],
-        ["嵐山", 120, [35.0168187, 135.6713013], '嵐山は、京都市西部にある標高382メートルの山で、四季折々の風景が楽しめる名勝地です。桜や紅葉の名所で、渡月橋が象徴的。観光スポットとしても有名で、多くの寺社が立地しています'],
-        ["伏見稲荷", 60, [34.9699515, 135.7709048], '伏見稲荷大社は、京都市にある稲荷神社の総本宮で、商売繁盛や家内安全の神として信仰されています。有名な千本鳥居が特徴的です'],
-        ["銀閣寺", 60, [35.0272541, 135.7945173], '銀閣寺は、京都の東山にある臨済宗相国寺派の禅寺で、将軍足利義政が祖父の金閣寺にならって造営した山荘「東山殿」が発祥。美しい庭園と建築様式で知られ、観音殿（国宝）は銀箔ではなく黒漆で覆われています'],
-        ["二条城", 60, [35.0138344, 135.7434714], '二条城は、京都市にある日本の城で、江戸時代の徳川将軍家の平城であり、近代においては皇室の離宮の役割を担っていました1。元離宮二条城は、徳川家康が京都滞在中の宿所として築城し、優美な御殿や庭園、絢爛な障壁画が魅力です'],
-        ["京都府立植物園", 120, [35.0487413, 135.7601605], '京都府立植物園は、日本で最初の公立植物園で、1924年に開園しました。広大な敷地には約12,000種類、約12万本の植物が植えられ、四季折々の花や木々を楽しめます。観覧温室や洋風庭園もあります'],
-        ["京都駅", 0, [34.9858534, 135.7561971], '京都駅は、京都府京都市下京区にある、JR西日本・JR東海・近畿日本鉄道（近鉄）・京都市交通局（京都市営地下鉄）のターミナル駅です。新幹線停車駅であり、観光の拠点となっています。烏丸口の駅ビルは、建築家原広司氏の設計で、全国最大級の大規模複合施設です'],
+        {
+          "category": "ホテル",
+          "name": "京都東急ホテル",
+          "duration_of_stay": 0,
+          "location": {
+            "lat": 34.9951359,
+            "lng": 135.7490678,
+          },
+          "summary": '京都駅近くの静かな立地で、モダンな和の空間と洗練された客室を提供しています。',
+        },
+        {
+          "category": "観光地",
+          "name": "金閣寺",
+          "duration_of_stay": 90,
+          "location": {
+            "lat": 35.0393744,
+            "lng": 135.7266682,
+          },
+          "summary": '金閣寺（正式名称は鹿苑寺）は、日本の観光名所で、京都にある臨済宗相国寺派の山荘です。特に有名なのは金色に輝く舎利殿「金閣」で、世界遺産にも登録されています123。この美しい寺院は、足利三代将軍義満によって造営され、北山文化の中心地として栄えました。金閣寺は、銀閣寺と共に多くの拝観者に親しまれています。',
+        },
+        {
+          "category": "観光地",
+          "name": "東寺",
+          "duration_of_stay": 60,
+          "location": {
+            "lat": 34.9802498,
+            "lng": 135.7475844,
+          },
+          "summary": '東寺は、京都市南区九条町にある世界遺産の真言宗総本山で、国宝や名宝を有する寺院です。創建から約1200年の歴史を持ち、本尊は薬師如来。八幡山とも呼ばれ、真言密教の根本道場として栄えました',
+        },
+        {
+          "category": "観光地",
+          "name": "京都タワー",
+          "duration_of_stay": 60, 
+          "location": {
+            "lat": 34.9875936,
+            "lng": 135.7567649,
+          },
+          "summary": '京都タワーは、京都の市街地を360度見渡せる展望室とおいしいレストラン、ショッピング、宿泊、お土産などを提供する観光スポットです。地上100メートルからの眺望や地下131メートルからの展望室、地下2階のショップ、ホテルなど、京都タワーで楽しむことができます',
+        },
+        {
+          "category": "観光地",
+          "name": "清水寺",
+          "duration_of_stay": 120, 
+          "location": {
+            "lat": 34.9946706,
+            "lng": 135.7820861,
+          },
+          "summary": '清水寺は、京都市東山区にある北法相宗の大本山で、音羽山とも呼ばれています。本尊は十一面千手観世音菩薩で、国宝の本堂や重要文化財の三重塔などがあります。世界遺産にも登録されています。季節を問わず多くの参詣者が訪れ、京都の有名な観光名所です。',
+        },
+        {
+          "category": "観光地",
+          "name": "嵐山",
+          "duration_of_stay": 120, 
+          "location": {
+            "lat": 35.0168187,
+            "lng": 135.6713013,
+          },
+          "summary": '嵐山は、京都市西部にある標高382メートルの山で、四季折々の風景が楽しめる名勝地です。桜や紅葉の名所で、渡月橋が象徴的。観光スポットとしても有名で、多くの寺社が立地しています',
+        },
+        {
+          "category": "観光地",
+          "name": "伏見稲荷",
+          "duration_of_stay": 60,
+          "location": {
+            "lat": 34.9699515,
+            "lng": 135.7709048,
+          },
+          "summary": '伏見稲荷大社は、京都市にある稲荷神社の総本宮で、商売繁盛や家内安全の神として信仰されています。有名な千本鳥居が特徴的です',
+        },
+        {
+          "category": "観光地",
+          "name": "銀閣寺",
+          "duration_of_stay": 60,
+          "location": {
+            "lat": 35.0272541,
+            "lng": 135.7945173,
+          },
+          "summary": '銀閣寺は、京都の東山にある臨済宗相国寺派の禅寺で、将軍足利義政が祖父の金閣寺にならって造営した山荘「東山殿」が発祥。美しい庭園と建築様式で知られ、観音殿（国宝）は銀箔ではなく黒漆で覆われています',
+        },
+        {
+          "category": "観光地",
+          "name": "二条城",
+          "duration_of_stay": 60, 
+          "location": {
+            "lat": 35.0138344,
+            "lng": 135.7434714,
+          },
+          "summary": '二条城は、京都市にある日本の城で、江戸時代の徳川将軍家の平城であり、近代においては皇室の離宮の役割を担っていました1。元離宮二条城は、徳川家康が京都滞在中の宿所として築城し、優美な御殿や庭園、絢爛な障壁画が魅力です',
+        },
+        {
+          "category": "観光地",
+          "name": "京都府立植物園",
+          "duration_of_stay": 120, 
+          "location": {
+            "lat": 35.0487413,
+            "lng": 135.7601605,
+          },
+          "summary": '京都府立植物園は、日本で最初の公立植物園で、1924年に開園しました。広大な敷地には約12,000種類、約12万本の植物が植えられ、四季折々の花や木々を楽しめます。観覧温室や洋風庭園もあります',
+        },
+        {
+          "category": "駅",
+          "name": "京都駅",
+          "duration_of_stay": 0,
+          "location": {
+            "lat": 34.9858534,
+            "lng": 135.7561971,
+          },
+          "summary": '京都駅は、京都府京都市下京区にある、JR西日本・JR東海・近畿日本鉄道（近鉄）・京都市交通局（京都市営地下鉄）のターミナル駅です。新幹線停車駅であり、観光の拠点となっています。烏丸口の駅ビルは、建築家原広司氏の設計で、全国最大級の大規模複合施設です',
+        },
       ];
-      const elm_areas = document.getElementById("areas");
+      
+      const elm_areas1 = document.getElementById("areas1");
+      const elm_areas2 = document.getElementById("areas2");
+      const elm_areas3 = document.getElementById("areas3");
       const elm_selareas = document.getElementById("selareas");
       const elm_radio = document.getElementById('radioForm');
       const elm_around = document.getElementById('around');
-      const elm_sel02 = document.getElementById('sel02');
+      const elm_arrival = document.getElementById('arrival');
       const elm_dlg_ttl = document.getElementById('dlg-ttl');
       const elm_dlg_msg = document.getElementById('dlg-msg');
       const elm_calc_button = document.getElementById('calc-button');
       const elm_calc_spinner = document.getElementById('calc-spinner');
       let limit = new Date();
       limit.setMinutes(limit.getMinutes() + 60 * 3);
+
+      // ダイアログのメッセージ消去
+      function diagmsg(ttl, msg) {
+        elm_dlg_ttl.innerText = ttl;
+        elm_dlg_msg.innerText = msg;
+      }
 
       // 実行中のスピナー表示
       function executing(f) {
@@ -191,8 +335,7 @@
           msg += '\n料金　' + ret.fare + '円';
         }
         //alert(msg);
-        elm_dlg_ttl.innerText = 'ルート案内';
-        elm_dlg_msg.innerText = msg;
+        diagmsg('ルート案内', msg)
       }
       // コースの１行をボタン表示
       function printrowbutton(r, areas) {
@@ -202,7 +345,8 @@
         elm_form_check_button = document.createElement("button");
         elm_form_check_button.type = "button";
         elm_form_check_button.className = "btn btn-light btn-block";
-        elm_form_check_button.style.textAlign = "left";
+        //elm_form_check_button.style.textAlign = "left";
+        elm_form_check_button.setAttribute('style', 'text-align: left;margin-bottom: 2px;padding-top: 1px;padding-bottom: 1px;margin-top: 2px;');
         elm_form_check_button.textContent = txt;
         elm_form_check_button.onclick = function() { routedetail(r, areas); };
         elm_form_check_button.type = "button";
@@ -254,7 +398,6 @@
       function displayroute(ret, areas) {
         coordinates = [];
         for (var r of ret['route']) {
-          pos = _areas[r][2];
           coordinates.push({lat: areas[r][2][0], lng: areas[r][2][1]});
         }
         if (_flightPath) {
@@ -271,38 +414,6 @@
           });
           _flightPath.setMap(_map);
         }
-      }
-
-      // ルート計算のテスト
-      async function chg_cb9() {
-        var areas = [1,2,3,4];
-        // 初期化
-        var table = [];
-        for (var i = 0; i < areas.length; i++) {
-          table[i] = [];
-          for (var j = 0; j < areas.length; j++) {
-            table[i][j] = 0;
-          }
-        }
-        for (var i = 0; i < areas.length; i++) {
-          for (var j = 1 + i; j < areas.length; j++) {
-            //console.log(areas[i], areas[j]);
-            const res = await fetch("/route?start=" + i + "&goal=" + j);
-            //console.log(a); // => Response
-            const ret = await res.json();
-            //console.log(ret.result); // => json
-            table[i][j] = ret.result;
-            table[j][i] = ret.result;
-          }
-        }
-        for (var i = 0; i < areas.length; i++) {
-          var str = "";
-          for (var j = 0; j < areas.length; j++) {
-            str = str + " " + table[j][i];
-          }
-          console.log(str);
-        }
-
       }
 
       // ルート計算
@@ -326,15 +437,15 @@
             var priority = document.getElementById("priority_val" + i).value;
             if (elmx_cb.checked && priority >= level) {
               var elmx_val = document.getElementById("area_val" + i);
-              console.log(_areas[i][0], _areas[i][2]);
-              areas.push([_areas[i][0], elmx_val.value, _areas[i][2]]);
+              console.log(_areas[i]["name"], _areas[i]["location"]);
+              areas.push([_areas[i]["name"], elmx_val.value, [_areas[i]["location"]["lat"],_areas[i]["location"]["lng"]]]);
             }
           }
           // 選択している到着地を追加
           for (var i = 0; i < _areas.length; i++) {
-            if (elm_sel02.value == _areas[i][0]) {
-              console.log(_areas[i][0], _areas[i][2]);
-              areas.push([_areas[i][0], _areas[i][1], _areas[i][2]]);
+            if (elm_arrival.value == _areas[i]["name"]) {
+              console.log(_areas[i]["name"], _areas[i]["location"]);
+              areas.push([_areas[i]["name"], _areas[i]["duration_of_stay"], [_areas[i]["location"]["lat"],_areas[i]["location"]["lng"]]]);
             }
           }
 
@@ -408,63 +519,6 @@
           }
         }
         executing(false);
-      }
-
-      function chg_cb1() {
-        // 消す
-        while (elm_selareas.firstChild) {
-          elm_selareas.removeChild(elm_selareas.firstChild);
-        }
-        indexs = []
-        table = []
-        for (var i = 0; i < _areas.length; i++) {
-          // 全テーブル作成
-          table.push(_areas[i][3]);
-          //　削除する番号リスト作成
-          if (i == 0) {
-            continue;
-          }
-//          if (i == _areas.length - 1) {
-//            indexs.push(i);
-//            break;
-//          }
-          var elmx_cb = document.getElementById("area" + i);
-          if (elmx_cb && !elmx_cb.checked) {
-            indexs.push(i);
-          }
-        }
-        if (indexs.length >= _areas.length - 1) {
-          return;
-        }
-        const obj = {indexs: indexs, table: table};
-        const method = "POST";
-        const body = JSON.stringify(obj);
-        const headers = {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        };
-        fetch("/api", {method, headers, body})
-          .then(function (response) {
-            return response.json();
-          }).then(function (myjson) {
-            console.log(myjson);
-            ret = {
-              'route': [0, 2, 4, 3, 1, 0],
-              'details': [
-                {'from': 0, 'to': 2, 'distance': 20},
-                {'from': 2, 'to': 4, 'distance': 20},
-                {'from': 4, 'to': 3, 'distance': 10},
-                {'from': 3, 'to': 1, 'distance': 30},
-                {'from': 1, 'to': 0, 'distance': 30}
-              ]
-            };
-            if ('details' in myjson) {
-              printroute(myjson);
-              displayroute(myjson);
-            } else {
-              printrow("エラー");
-            }
-          });
       }
 
       // クリックした場所を地図の中心にする
@@ -569,6 +623,7 @@
         }
       }
 
+      // 到着期限
       function setEndTime() {
         let date = new Date();
         date.setMinutes(date.getMinutes() + 60 * 3);
@@ -581,18 +636,15 @@
 
       function areadetail(name) {
         for (area of _areas) {
-          if (name == area[0]) {
-            elm_dlg_ttl.innerText = area[0];
-            elm_dlg_msg.innerText = area[3];
+          if (name == area["name"]) {
+            diagmsg(area["name"], area["summary"])
             break;
           }
         }
       }
 
+      // 経由地を表示
       for (var i = 0; i < _areas.length; i++) {
-        if (i == 0 || i == _areas.length - 1) {
-          continue;
-        }
         elm_div = document.createElement("div");
         elm_div.className = "col-8";
 
@@ -613,7 +665,7 @@
         elm_form_check_label.type = "button";
         elm_form_check_label.className = "btn btn-light btn-block";
         //elm_form_check_label.style.textAlign = "left";
-        elm_form_check_label.textContent = _areas[i][0];
+        elm_form_check_label.textContent = _areas[i]["name"];
         elm_form_check_label.onclick = function(arg) {
           areadetail(arg.target.textContent)
         };
@@ -625,7 +677,7 @@
         elm_form_check_input1 = document.createElement("input");
         elm_form_check_input1.className = "form-control form-control-sm col-2";
         elm_form_check_input1.type = "number";
-        elm_form_check_input1.value = _areas[i][1];
+        elm_form_check_input1.value = _areas[i]["duration_of_stay"];
         elm_form_check_input1.setAttribute('id', "area_val" + i);
 
         elm_form_check_input2 = document.createElement("input");
@@ -640,10 +692,30 @@
         elm_form_check.appendChild(elm_form_check_check);
         elm_form_check.appendChild(elm_form_check_label);
         elm_div.appendChild(elm_form_check);
-        elm_areas.appendChild(elm_div);
-        elm_areas.appendChild(elm_form_check_input1);
-        elm_areas.appendChild(elm_form_check_input2);
+        if (_areas[i]["category"] == '観光地') {
+          elm_areas1.appendChild(elm_div);
+          elm_areas1.appendChild(elm_form_check_input1);
+          elm_areas1.appendChild(elm_form_check_input2);
+        } else if (_areas[i]["category"] == '駅') {
+          elm_areas2.appendChild(elm_div);
+          elm_areas2.appendChild(elm_form_check_input1);
+          elm_areas2.appendChild(elm_form_check_input2);
+        } else if (_areas[i]["category"] == 'ホテル') {
+          elm_areas3.appendChild(elm_div);
+          elm_areas3.appendChild(elm_form_check_input1);
+          elm_areas3.appendChild(elm_form_check_input2);
+
+        }
       }
+      // 到着地を設定
+      for (var i = 0; i < _areas.length; i++) {
+        if (_areas[i]["category"] == '駅' || _areas[i]["category"] == 'ホテル') {
+          elm_option = document.createElement("option");
+          elm_option.textContent = _areas[i]["name"];
+          elm_arrival.appendChild(elm_option);
+        }
+      }
+      // 到着期限を設定
       setEndTime();
     </script>
   </body>
