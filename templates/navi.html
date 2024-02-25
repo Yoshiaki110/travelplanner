@@ -23,8 +23,9 @@
               <div id="dlg-msg" class="modal-body">
                 ないよう
               </div>
+              <center id="dlg-img"></center>
               <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="diagmsg('','');">OK</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="diagmsg('','', null);">OK</button>
               </div>
             </div>
           </div>
@@ -86,7 +87,6 @@
         </div>
 
         <div class="col-12">
-
           <div class="form-group">
             <label for="arrival">到着地:</label>
             <select id="arrival" class="custom-select"></select>
@@ -159,15 +159,25 @@
       const elm_arrival = document.getElementById('arrival');
       const elm_dlg_ttl = document.getElementById('dlg-ttl');
       const elm_dlg_msg = document.getElementById('dlg-msg');
+      const elm_dlg_img = document.getElementById('dlg-img');
       const elm_calc_button = document.getElementById('calc-button');
       const elm_calc_spinner = document.getElementById('calc-spinner');
       let limit = new Date();
       limit.setMinutes(limit.getMinutes() + 60 * 3);
 
       // ダイアログのメッセージ消去
-      function diagmsg(ttl, msg) {
+      function diagmsg(ttl, msg, img_url) {
         elm_dlg_ttl.innerText = ttl;
         elm_dlg_msg.innerText = msg;
+        if (img_url) {
+          elm_dlg_img.innerText = null;
+          elm_img = document.createElement("img");
+          elm_img.src = img_url;
+          elm_img.setAttribute('width', "90%");
+          elm_dlg_img.appendChild(elm_img);
+        } else {
+          elm_dlg_img.innerText = null;
+        }
       }
 
       // 実行中のスピナー表示
@@ -222,7 +232,7 @@
           msg += '\n料金　' + ret.fare + '円';
         }
         //alert(msg);
-        diagmsg('ルート案内', msg)
+        diagmsg('ルート案内', msg, null)
       }
       // コースの１行をボタン表示
       function printrowbutton(r, areas) {
@@ -524,7 +534,7 @@
       function areadetail(name) {
         for (area of _areas) {
           if (name == area["name"]) {
-            diagmsg(area["name"], area["summary"])
+            diagmsg(area["name"], area["summary"], area["photo"])
             break;
           }
         }
@@ -598,7 +608,6 @@
               elm_areas3.appendChild(elm_div);
               elm_areas3.appendChild(elm_form_check_input1);
               elm_areas3.appendChild(elm_form_check_input2);
-
             }
           }
           // 到着地を設定
@@ -609,9 +618,6 @@
               elm_arrival.appendChild(elm_option);
             }
           }
-
-
-
         });
 
       // 到着期限を設定
