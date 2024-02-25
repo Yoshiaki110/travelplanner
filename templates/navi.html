@@ -149,120 +149,7 @@
         google.maps.event.addListener(_map, 'click', click_map);
       }
       window.initMap = initMap;
-
-      var _areas = [
-        {
-          "category": "ホテル",
-          "name": "京都東急ホテル",
-          "duration_of_stay": 0,
-          "location": {
-            "lat": 34.9951359,
-            "lng": 135.7490678,
-          },
-          "summary": '京都駅近くの静かな立地で、モダンな和の空間と洗練された客室を提供しています。',
-        },
-        {
-          "category": "観光地",
-          "name": "金閣寺",
-          "duration_of_stay": 90,
-          "location": {
-            "lat": 35.0393744,
-            "lng": 135.7266682,
-          },
-          "summary": '金閣寺（正式名称は鹿苑寺）は、日本の観光名所で、京都にある臨済宗相国寺派の山荘です。特に有名なのは金色に輝く舎利殿「金閣」で、世界遺産にも登録されています123。この美しい寺院は、足利三代将軍義満によって造営され、北山文化の中心地として栄えました。金閣寺は、銀閣寺と共に多くの拝観者に親しまれています。',
-        },
-        {
-          "category": "観光地",
-          "name": "東寺",
-          "duration_of_stay": 60,
-          "location": {
-            "lat": 34.9802498,
-            "lng": 135.7475844,
-          },
-          "summary": '東寺は、京都市南区九条町にある世界遺産の真言宗総本山で、国宝や名宝を有する寺院です。創建から約1200年の歴史を持ち、本尊は薬師如来。八幡山とも呼ばれ、真言密教の根本道場として栄えました',
-        },
-        {
-          "category": "観光地",
-          "name": "京都タワー",
-          "duration_of_stay": 60, 
-          "location": {
-            "lat": 34.9875936,
-            "lng": 135.7567649,
-          },
-          "summary": '京都タワーは、京都の市街地を360度見渡せる展望室とおいしいレストラン、ショッピング、宿泊、お土産などを提供する観光スポットです。地上100メートルからの眺望や地下131メートルからの展望室、地下2階のショップ、ホテルなど、京都タワーで楽しむことができます',
-        },
-        {
-          "category": "観光地",
-          "name": "清水寺",
-          "duration_of_stay": 120, 
-          "location": {
-            "lat": 34.9946706,
-            "lng": 135.7820861,
-          },
-          "summary": '清水寺は、京都市東山区にある北法相宗の大本山で、音羽山とも呼ばれています。本尊は十一面千手観世音菩薩で、国宝の本堂や重要文化財の三重塔などがあります。世界遺産にも登録されています。季節を問わず多くの参詣者が訪れ、京都の有名な観光名所です。',
-        },
-        {
-          "category": "観光地",
-          "name": "嵐山",
-          "duration_of_stay": 120, 
-          "location": {
-            "lat": 35.0168187,
-            "lng": 135.6713013,
-          },
-          "summary": '嵐山は、京都市西部にある標高382メートルの山で、四季折々の風景が楽しめる名勝地です。桜や紅葉の名所で、渡月橋が象徴的。観光スポットとしても有名で、多くの寺社が立地しています',
-        },
-        {
-          "category": "観光地",
-          "name": "伏見稲荷",
-          "duration_of_stay": 60,
-          "location": {
-            "lat": 34.9699515,
-            "lng": 135.7709048,
-          },
-          "summary": '伏見稲荷大社は、京都市にある稲荷神社の総本宮で、商売繁盛や家内安全の神として信仰されています。有名な千本鳥居が特徴的です',
-        },
-        {
-          "category": "観光地",
-          "name": "銀閣寺",
-          "duration_of_stay": 60,
-          "location": {
-            "lat": 35.0272541,
-            "lng": 135.7945173,
-          },
-          "summary": '銀閣寺は、京都の東山にある臨済宗相国寺派の禅寺で、将軍足利義政が祖父の金閣寺にならって造営した山荘「東山殿」が発祥。美しい庭園と建築様式で知られ、観音殿（国宝）は銀箔ではなく黒漆で覆われています',
-        },
-        {
-          "category": "観光地",
-          "name": "二条城",
-          "duration_of_stay": 60, 
-          "location": {
-            "lat": 35.0138344,
-            "lng": 135.7434714,
-          },
-          "summary": '二条城は、京都市にある日本の城で、江戸時代の徳川将軍家の平城であり、近代においては皇室の離宮の役割を担っていました1。元離宮二条城は、徳川家康が京都滞在中の宿所として築城し、優美な御殿や庭園、絢爛な障壁画が魅力です',
-        },
-        {
-          "category": "観光地",
-          "name": "京都府立植物園",
-          "duration_of_stay": 120, 
-          "location": {
-            "lat": 35.0487413,
-            "lng": 135.7601605,
-          },
-          "summary": '京都府立植物園は、日本で最初の公立植物園で、1924年に開園しました。広大な敷地には約12,000種類、約12万本の植物が植えられ、四季折々の花や木々を楽しめます。観覧温室や洋風庭園もあります',
-        },
-        {
-          "category": "駅",
-          "name": "京都駅",
-          "duration_of_stay": 0,
-          "location": {
-            "lat": 34.9858534,
-            "lng": 135.7561971,
-          },
-          "summary": '京都駅は、京都府京都市下京区にある、JR西日本・JR東海・近畿日本鉄道（近鉄）・京都市交通局（京都市営地下鉄）のターミナル駅です。新幹線停車駅であり、観光の拠点となっています。烏丸口の駅ビルは、建築家原広司氏の設計で、全国最大級の大規模複合施設です',
-        },
-      ];
-      
+      var _areas = {};
       const elm_areas1 = document.getElementById("areas1");
       const elm_areas2 = document.getElementById("areas2");
       const elm_areas3 = document.getElementById("areas3");
@@ -432,7 +319,7 @@
           console.log("現在地", [latLng.lat(), latLng.lng()]);
           areas.push(["現在地", 0, [latLng.lat(), latLng.lng()]]);
           // 選択している経由地を追加
-          for (var i = 1; i < _areas.length - 1; i++) {
+          for (var i = 0; i < _areas.length; i++) {
             var elmx_cb = document.getElementById("area" + i);
             var priority = document.getElementById("priority_val" + i).value;
             if (elmx_cb.checked && priority >= level) {
@@ -643,78 +530,90 @@
         }
       }
 
-      // 経由地を表示
-      for (var i = 0; i < _areas.length; i++) {
-        elm_div = document.createElement("div");
-        elm_div.className = "col-8";
+      fetch("/area")
+        .then(function (response) {
+          return response.json();
+        }).then(function (myjson) {
+          console.log(myjson);
+          _areas = myjson;
 
-        elm_form_check = document.createElement("div");
-        elm_form_check.className = "form-check";
+          // 経由地を表示
+          for (var i = 0; i < _areas.length; i++) {
+            elm_div = document.createElement("div");
+            elm_div.className = "col-8";
 
-        elm_form_check_check = document.createElement("input");
-        elm_form_check_check.className = "form-check-input";
-        elm_form_check_check.type = "checkbox";
-        elm_form_check_check.setAttribute('id', "area" + i);
-        //elm_form_check_input.onchange = chg_cb;
+            elm_form_check = document.createElement("div");
+            elm_form_check.className = "form-check";
 
-        //elm_form_check_label = document.createElement("label");
-        //elm_form_check_label.className = "form-check-label";
-        //elm_form_check_label.htmlFor = "area" + i;
-        //elm_form_check_label.textContent = _areas[i][0];
-        elm_form_check_label = document.createElement("button");
-        elm_form_check_label.type = "button";
-        elm_form_check_label.className = "btn btn-light btn-block";
-        //elm_form_check_label.style.textAlign = "left";
-        elm_form_check_label.textContent = _areas[i]["name"];
-        elm_form_check_label.onclick = function(arg) {
-          areadetail(arg.target.textContent)
-        };
-        elm_form_check_label.type = "button";
-        elm_form_check_label.setAttribute('data-toggle', 'modal');
-        elm_form_check_label.setAttribute('data-target', '#modal1');
-        elm_form_check_label.setAttribute('style', 'text-align: left;margin-bottom: 2px;padding-top: 1px;padding-bottom: 1px;margin-top: 2px;');
+            elm_form_check_check = document.createElement("input");
+            elm_form_check_check.className = "form-check-input";
+            elm_form_check_check.type = "checkbox";
+            elm_form_check_check.setAttribute('id', "area" + i);
+            //elm_form_check_input.onchange = chg_cb;
 
-        elm_form_check_input1 = document.createElement("input");
-        elm_form_check_input1.className = "form-control form-control-sm col-2";
-        elm_form_check_input1.type = "number";
-        elm_form_check_input1.value = _areas[i]["duration_of_stay"];
-        elm_form_check_input1.setAttribute('id', "area_val" + i);
+            //elm_form_check_label = document.createElement("label");
+            //elm_form_check_label.className = "form-check-label";
+            //elm_form_check_label.htmlFor = "area" + i;
+            //elm_form_check_label.textContent = _areas[i][0];
+            elm_form_check_label = document.createElement("button");
+            elm_form_check_label.type = "button";
+            elm_form_check_label.className = "btn btn-light btn-block";
+            //elm_form_check_label.style.textAlign = "left";
+            elm_form_check_label.textContent = _areas[i]["name"];
+            elm_form_check_label.onclick = function(arg) {
+              areadetail(arg.target.textContent)
+            };
+            elm_form_check_label.type = "button";
+            elm_form_check_label.setAttribute('data-toggle', 'modal');
+            elm_form_check_label.setAttribute('data-target', '#modal1');
+            elm_form_check_label.setAttribute('style', 'text-align: left;margin-bottom: 2px;padding-top: 1px;padding-bottom: 1px;margin-top: 2px;');
 
-        elm_form_check_input2 = document.createElement("input");
-        elm_form_check_input2.className = "form-control form-control-sm col-2";
-        elm_form_check_input2.type = "number";
-        elm_form_check_input2.value = 3;
-        elm_form_check_input2.setAttribute('id', "priority_val" + i);
-        elm_form_check_input2.setAttribute('min', "1" + i);
-        elm_form_check_input2.setAttribute('max', "3" + i);
-        elm_form_check_input2.setAttribute('maxlength', "1" + i);
+            elm_form_check_input1 = document.createElement("input");
+            elm_form_check_input1.className = "form-control form-control-sm col-2";
+            elm_form_check_input1.type = "number";
+            elm_form_check_input1.value = _areas[i]["duration_of_stay"];
+            elm_form_check_input1.setAttribute('id', "area_val" + i);
 
-        elm_form_check.appendChild(elm_form_check_check);
-        elm_form_check.appendChild(elm_form_check_label);
-        elm_div.appendChild(elm_form_check);
-        if (_areas[i]["category"] == '観光地') {
-          elm_areas1.appendChild(elm_div);
-          elm_areas1.appendChild(elm_form_check_input1);
-          elm_areas1.appendChild(elm_form_check_input2);
-        } else if (_areas[i]["category"] == '駅') {
-          elm_areas2.appendChild(elm_div);
-          elm_areas2.appendChild(elm_form_check_input1);
-          elm_areas2.appendChild(elm_form_check_input2);
-        } else if (_areas[i]["category"] == 'ホテル') {
-          elm_areas3.appendChild(elm_div);
-          elm_areas3.appendChild(elm_form_check_input1);
-          elm_areas3.appendChild(elm_form_check_input2);
+            elm_form_check_input2 = document.createElement("input");
+            elm_form_check_input2.className = "form-control form-control-sm col-2";
+            elm_form_check_input2.type = "number";
+            elm_form_check_input2.value = 3;
+            elm_form_check_input2.setAttribute('id', "priority_val" + i);
+            elm_form_check_input2.setAttribute('min', "1" + i);
+            elm_form_check_input2.setAttribute('max', "3" + i);
+            elm_form_check_input2.setAttribute('maxlength', "1" + i);
 
-        }
-      }
-      // 到着地を設定
-      for (var i = 0; i < _areas.length; i++) {
-        if (_areas[i]["category"] == '駅' || _areas[i]["category"] == 'ホテル') {
-          elm_option = document.createElement("option");
-          elm_option.textContent = _areas[i]["name"];
-          elm_arrival.appendChild(elm_option);
-        }
-      }
+            elm_form_check.appendChild(elm_form_check_check);
+            elm_form_check.appendChild(elm_form_check_label);
+            elm_div.appendChild(elm_form_check);
+            if (_areas[i]["category"] == '観光地') {
+              elm_areas1.appendChild(elm_div);
+              elm_areas1.appendChild(elm_form_check_input1);
+              elm_areas1.appendChild(elm_form_check_input2);
+            } else if (_areas[i]["category"] == '駅') {
+              elm_areas2.appendChild(elm_div);
+              elm_areas2.appendChild(elm_form_check_input1);
+              elm_areas2.appendChild(elm_form_check_input2);
+            } else if (_areas[i]["category"] == 'ホテル') {
+              elm_areas3.appendChild(elm_div);
+              elm_areas3.appendChild(elm_form_check_input1);
+              elm_areas3.appendChild(elm_form_check_input2);
+
+            }
+          }
+          // 到着地を設定
+          for (var i = 0; i < _areas.length; i++) {
+            if (_areas[i]["category"] == '駅' || _areas[i]["category"] == 'ホテル') {
+              elm_option = document.createElement("option");
+              elm_option.textContent = _areas[i]["name"];
+              elm_arrival.appendChild(elm_option);
+            }
+          }
+
+
+
+        });
+
       // 到着期限を設定
       setEndTime();
     </script>

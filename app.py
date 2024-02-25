@@ -52,6 +52,14 @@ def tp_navi():
     resp = make_response(render_template("navi.html", GOOGLEMAP_KEY = GOOGLEMAP_KEY))
     return resp
 
+@app.route('/area')
+def tp_area():
+    print("** /area " + request.method)
+    with open("./areas.json", "r", encoding="utf-8") as f:
+        ret = json.load(f)
+        return jsonify(ret)
+
+
 @app.route('/guida')
 def tp_guidance():
     print("** /guida " + request.method)
