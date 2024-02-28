@@ -331,7 +331,12 @@
           // 選択している経由地を追加
           for (var i = 0; i < _areas.length; i++) {
             var elmx_cb = document.getElementById("area" + i);
-            var priority = document.getElementById("priority_val" + i).value;
+            try {
+              var priority = document.getElementById("priority_val" + i).value;
+            } catch(e) {
+              console.log(e);
+            }
+            
             if (elmx_cb.checked && priority >= level) {
               var elmx_val = document.getElementById("area_val" + i);
               console.log(_areas[i]["name"], _areas[i]["location"]);
@@ -600,7 +605,7 @@
               elm_areas1.appendChild(elm_div);
               elm_areas1.appendChild(elm_form_check_input1);
               elm_areas1.appendChild(elm_form_check_input2);
-            } else if (_areas[i]["category"] == '駅') {
+            } else if (_areas[i]["category"] == '鉄道の駅') {
               elm_areas2.appendChild(elm_div);
               elm_areas2.appendChild(elm_form_check_input1);
               elm_areas2.appendChild(elm_form_check_input2);
@@ -612,7 +617,7 @@
           }
           // 到着地を設定
           for (var i = 0; i < _areas.length; i++) {
-            if (_areas[i]["category"] == '駅' || _areas[i]["category"] == 'ホテル') {
+            if (_areas[i]["category"] == '鉄道の駅' || _areas[i]["category"] == 'ホテル') {
               elm_option = document.createElement("option");
               elm_option.textContent = _areas[i]["name"];
               elm_arrival.appendChild(elm_option);
