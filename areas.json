@@ -2,7 +2,8 @@
     {
       "category": "観光地",
       "name": "元離宮二条城",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 0,
       "summary": "広大な庭園がある檜造りの城。1603 年に徳川家康が築城。",
       "address": "〒604-8301 京都府京都市中京区二条城町５４１",
       "phone_number": "075-841-0096",
@@ -47,6 +48,7 @@
       "category": "観光地",
       "name": "嵐山",
       "duration_of_stay": 60,
+      "price": 0,
       "summary": "竹林や水景で知られる風光明媚な観光名所。野生のニホンザルに会えるスポットもある。",
       "address": "〒616-0007 京都府京都市右京区嵐山元録山町",
       "phone_number": "",
@@ -61,7 +63,8 @@
     {
       "category": "観光地",
       "name": "京都御所",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 0,
       "summary": "1855 年に再建された皇室関連の複合施設と旧仮皇居。庭園と門もある。",
       "address": "〒602-0881 京都府京都市上京区京都御苑３",
       "phone_number": "075-211-1211",
@@ -97,7 +100,8 @@
     {
       "category": "観光地",
       "name": "禅林寺 永観堂",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 600,
       "summary": "古代の美術品を収蔵する有名な仏教寺院。肩越しに振り返る「みかえり阿弥陀」などが有名。",
       "address": "〒606-8445 京都府京都市左京区永観堂町４８",
       "phone_number": "075-761-0007",
@@ -141,7 +145,8 @@
     {
       "category": "観光地",
       "name": "京都タワー",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 900,
       "summary": "双眼鏡、タッチパネル式観光案内を備えた展望台があるタワー。レストランやラウンジなどもある。",
       "address": "〒600-8216 京都府京都市下京区東塩小路町７２１−１",
       "phone_number": "075-361-3215",
@@ -185,7 +190,8 @@
     {
       "category": "観光地",
       "name": "龍安寺",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 500,
       "summary": "15 世紀建立の寺。風光明媚な境内には、禅の思想が息づく有名な石庭と湯豆腐の店がある。",
       "address": "〒616-8001 京都府京都市右京区龍安寺御陵ノ下町１３",
       "phone_number": "075-463-2216",
@@ -229,7 +235,8 @@
     {
       "category": "観光地",
       "name": "東寺",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 1000,
       "summary": "木造の五重塔を備えた、8 世紀創建の由緒ある仏教寺院。仏像彫刻が祀られている。",
       "address": "〒601-8473 京都府京都市南区九条町１",
       "phone_number": "075-691-3325",
@@ -273,7 +280,8 @@
     {
       "category": "観光地",
       "name": "産寧坂（三年坂）",
-      "duration_of_stay": 60,
+      "duration_of_stay": 5,
+      "price": 0,
       "summary": "土産物店と伝統的な日本建築が並び、たくさんの歩行者でにぎわう坂道。",
       "address": "〒605-0862 京都府京都市東山区清水２丁目２１１",
       "phone_number": "",
@@ -288,7 +296,8 @@
     {
       "category": "観光地",
       "name": "嵐山 竹林の小径",
-      "duration_of_stay": 60,
+      "duration_of_stay": 10,
+      "price": 0,
       "summary": "観光スポットとして人気がある、竹林を通る上り坂の小道。",
       "address": "〒616-8394 京都府京都市右京区嵯峨小倉山田淵山町",
       "phone_number": "075-343-0548",
@@ -303,7 +312,8 @@
     {
       "category": "観光地",
       "name": "花見小路",
-      "duration_of_stay": 60,
+      "duration_of_stay": 10,
+      "price": 0,
       "summary": "伝統的な建物や呉服屋、飲食店が並び、舞妓で有名な歴史ある地区。",
       "address": "〒600-8340 京都府京都市東山区祇園町南側",
       "phone_number": "",
@@ -318,7 +328,8 @@
     {
       "category": "観光地",
       "name": "八坂神社",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 0,
       "summary": "日本有数の祭礼が行われる 656 年創建の神社。",
       "address": "〒605-0073 京都府京都市東山区祇園町北側６２５",
       "phone_number": "075-561-6155",
@@ -333,7 +344,8 @@
     {
       "category": "観光地",
       "name": "平安神宮",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 600,
       "summary": "平安遷都 1100 年を記念して 1895 年に創建された神社。美しい景観をみせる日本庭園がある。",
       "address": "〒606-8341 京都府京都市左京区岡崎西天王町９７",
       "phone_number": "075-761-0221",
@@ -378,6 +390,7 @@
       "category": "観光地",
       "name": "南禅寺",
       "duration_of_stay": 60,
+      "price": 1500,
       "summary": "枯山水庭園、木々に囲まれた敷地、参道のある厳かな仏教寺院。",
       "address": "〒606-8435 京都府京都市左京区南禅寺福地町８６",
       "phone_number": "075-771-0365",
@@ -421,7 +434,8 @@
     {
       "category": "観光地",
       "name": "東山慈照寺",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 500,
       "summary": "美しい庭園と富士山のような形の砂盛で知られる 15 世紀の禅寺。",
       "address": "〒606-8402 京都府京都市左京区銀閣寺町２",
       "phone_number": "075-771-5725",
@@ -465,7 +479,8 @@
     {
       "category": "観光地",
       "name": "伏見稲荷大社",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 0,
       "summary": "711 年に建立された山腹の神社。千本鳥居が有名。",
       "address": "〒612-0882 京都府京都市伏見区深草藪之内町６８",
       "phone_number": "075-641-7331",
@@ -480,7 +495,8 @@
     {
       "category": "観光地",
       "name": "千本鳥居",
-      "duration_of_stay": 60,
+      "duration_of_stay": 10,
+      "price": 0,
       "summary": "約 1 万基の伝統的な赤い鳥居と階段がある小道が特徴の山腹にある神社。",
       "address": "〒612-0882 京都府京都市伏見区深草藪之内町68番地",
       "phone_number": "075-641-7331",
@@ -495,7 +511,8 @@
     {
       "category": "観光地",
       "name": "金閣寺",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 400,
       "summary": "美しい庭園に囲まれ、池のほとりにたたずむ由緒ある閑静な寺。金箔張りの楼閣建築が有名。",
       "address": "〒603-8361 京都府京都市北区金閣寺町１",
       "phone_number": "075-461-0013",
@@ -539,7 +556,8 @@
     {
       "category": "観光地",
       "name": "高台寺",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 600,
       "summary": "静かな佇まいの仏教寺院と庭園。茶室があり、季節限定のライトアップも行われる。",
       "address": "〒605-0825 京都府京都市東山区下河原町 高台寺下河原町５２６",
       "phone_number": "075-561-9966",
@@ -583,7 +601,8 @@
     {
       "category": "観光地",
       "name": "賀茂御祖神社（下鴨神社）",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 500,
       "summary": "静かな川沿いの森にある有名な 2,000 年の歴史がある神社。発掘調査現場もある。",
       "address": "〒606-0807 京都府京都市左京区下鴨泉川町５９",
       "phone_number": "075-781-0010",
@@ -627,7 +646,8 @@
     {
       "category": "観光地",
       "name": "貴船神社",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 0,
       "summary": "緑豊かな山深くにある神社。灯籠が連なる参道も有名。",
       "address": "〒601-1112 京都府京都市左京区鞍馬貴船町１８０",
       "phone_number": "075-741-2016",
@@ -672,6 +692,7 @@
       "category": "観光地",
       "name": "京都市動物園",
       "duration_of_stay": 60,
+      "price": 750,
       "summary": "庭園、子供用の乗り物、売店があるコンパクトでモダンな動物園。",
       "address": "〒606-8333 京都府京都市左京区岡崎法勝寺町",
       "phone_number": "075-771-0210",
@@ -711,8 +732,9 @@
     {
       "category": "観光地",
       "name": "花の回廊",
-      "duration_of_stay": 60,
-      "summary": "情報なし",
+      "duration_of_stay": 5,
+      "price": 0,
+      "summary": "京都の花の回廊は、鴨川左岸の三条大橋から七条大橋までの約2kmにわたって桜の木が植えられた花見の名所です。平成4年から11年までの河川改修に合わせて整備され、しだれ桜やソメイヨシノ、しだれ柳などが四季折々に楽しめます",
       "address": "〒605-0009 京都府京都市東山区大橋町",
       "phone_number": "",
       "location": {
@@ -726,8 +748,9 @@
     {
       "category": "観光地",
       "name": "音楽噴水AQUA FANTASY",
-      "duration_of_stay": 60,
-      "summary": "情報なし",
+      "duration_of_stay": 5,
+      "price": 0,
+      "summary": "音楽噴水「AQUA FANTASY」は、京都駅北口広場にある音楽噴水です。京都駅ターミナルと京都タワーの間にあり、地下街へ行く階段の建物の屋根の上から噴水が出ます。",
       "address": "〒600-8216 京都府京都市下京区東塩小路町９０２",
       "phone_number": "",
       "location": {
@@ -770,7 +793,8 @@
     {
       "category": "観光地",
       "name": "京都国立博物館",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 700,
       "summary": "日本の彫刻、絵画、書道、金属工芸品を所蔵する歴史のある博物館。カフェも併設。",
       "address": "〒605-0931 京都府京都市東山区茶屋町５２７",
       "phone_number": "075-525-2473",
@@ -810,8 +834,9 @@
     {
       "category": "観光地",
       "name": "祇園新橋伝統的建造物群保存地区",
-      "duration_of_stay": 60,
-      "summary": "情報なし",
+      "duration_of_stay": 10,
+      "price": 0,
+      "summary": "祇園新橋伝統的建造物群保存地区は、京都市東山区元吉町、末吉町辺りにある地区です。祇園の新橋通りを中心とした東西約160メートル、南北約100メートルの範囲で、面積は1.4ヘクタールです",
       "address": "〒605-0087 京都府京都市東山区元吉町",
       "phone_number": "",
       "location": {
@@ -826,6 +851,7 @@
       "category": "観光地",
       "name": "京都水族館",
       "duration_of_stay": 60,
+      "price": 2400,
       "summary": "9 つのゾーンがあるモダンな水族館。オオサンショウウオ、ペンギン、アザラシなどが展示され、イルカショーも行われる。",
       "address": "〒600-8835 京都府京都市下京区観喜寺町３５−１ 内 梅小路公園",
       "phone_number": "075-354-3130",
@@ -869,7 +895,8 @@
     {
       "category": "観光地",
       "name": "蹴上インクライン",
-      "duration_of_stay": 60,
+      "duration_of_stay": 5,
+      "price": 0,
       "summary": "斜面にレールを敷いた、全長 582 m の鉄道跡。風光明媚な桜並木で知られる。",
       "address": "〒606-8435 京都府京都市東山区東小物座町３３９",
       "phone_number": "075-761-3171",
@@ -884,7 +911,8 @@
     {
       "category": "観光地",
       "name": "北野天満宮",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 1000,
       "summary": "10 世紀創建の神社。一年を通じて、四季折々の伝統行事を執り行う。",
       "address": "〒602-8386 京都府京都市上京区馬喰町",
       "phone_number": "075-461-0005",
@@ -928,8 +956,9 @@
     {
       "category": "観光地",
       "name": "京都駅ビル 大階段",
-      "duration_of_stay": 60,
-      "summary": "情報なし",
+      "duration_of_stay": 5,
+      "price": 0,
+      "summary": "京都駅ビル西側（伊勢丹側）にある大階段は、171段あり、全長は70m、高低差は35mです。最上階まで続いており、約15,000個のLEDを使用したグラフィカルイルミネーションが施されています。",
       "address": "〒600-8216 京都府京都市下京区東塩小路町９０１",
       "phone_number": "075-361-5127",
       "location": {
@@ -943,8 +972,9 @@
     {
       "category": "観光地",
       "name": "木屋町通",
-      "duration_of_stay": 60,
-      "summary": "情報なし",
+      "duration_of_stay": 5,
+      "price": 0,
+      "summary": "木屋町通、木屋町通りは、京都市の南北の通りの一つである。北は二条通から南は七条通まで、全長約2.8キロメートルの道路である。先斗町の西にあり、高瀬川の東側に沿って中京区・下京区を貫通する。 略称木屋町は、東西の通り名と合わせて頻用され、また通り沿い・高瀬川沿いの二条・五条間の地域を「木屋町」と通称する。",
       "address": "〒604-8016 京都府京都市中京区下樵木町",
       "phone_number": "075-746-2255",
       "location": {
@@ -958,7 +988,8 @@
     {
       "category": "観光地",
       "name": "京都御苑",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 0,
       "summary": "緑豊かな敷地内には小川が流れ、春には桜が咲き誇る。園内には旧公家屋敷跡など歴史的な建物が点在。催し物も開かれる。",
       "address": "〒602-0881 京都府京都市上京区京都御苑３",
       "phone_number": "075-211-6348",
@@ -973,7 +1004,8 @@
     {
       "category": "観光地",
       "name": "錦市場",
-      "duration_of_stay": 60,
+      "duration_of_stay": 10,
+      "price": 0,
       "summary": "ブティック、土産物店、焼き物料理の店がある有名なアーケード商店街。",
       "address": "〒604-8055 京都府京都市中京区東魚屋町",
       "phone_number": "075-211-3882",
@@ -988,7 +1020,8 @@
     {
       "category": "観光地",
       "name": "清水寺",
-      "duration_of_stay": 60,
+      "duration_of_stay": 45,
+      "price": 400,
       "summary": "巨大な本堂からの景観で知られる音羽山にある有名な仏教寺院。",
       "address": "〒605-0862 京都府京都市東山区清水１丁目２９４",
       "phone_number": "075-551-1234",
@@ -1032,8 +1065,9 @@
     {
       "category": "観光地",
       "name": "新京極商店街（新京極通）",
-      "duration_of_stay": 60,
-      "summary": "情報なし",
+      "duration_of_stay": 10,
+      "price": 0,
+      "summary": "新京極通は、京都市中京区の南北の通りの一つ。三条通から四条通までの比較的短い通りである。現在は主に新京極商店街として整備されている。",
       "address": "〒604-8035 京都府京都市中京区桜之町４３８−１",
       "phone_number": "075-223-2426",
       "location": {
@@ -1076,8 +1110,9 @@
     {
       "category": "観光地",
       "name": "先斗町通",
-      "duration_of_stay": 60,
-      "summary": "情報なし",
+      "duration_of_stay": 10,
+      "price": 0,
+      "summary": "先斗町通（ぽんとちょう）は、京都市中京区にある鴨川と木屋町通の間にある通りです。三条通一筋南から四条通までの約500メートルにわたる細長い通りで、京都を代表する花街のひとつです。﻿",
       "address": "〒604-8012 京都府京都市中京区下樵木町",
       "phone_number": "",
       "location": {
@@ -1091,8 +1126,9 @@
     {
       "category": "観光地",
       "name": "みやこの滝",
-      "duration_of_stay": 60,
-      "summary": "情報なし",
+      "duration_of_stay": 5,
+      "price": 0,
+      "summary": "京都駅・みやこみちにある「みやこの滝」は、都シティ近鉄京都駅内にある小さな人工滝です。みやこみちは、近鉄京都線京都駅の地階にあるお土産とレストランの集まった場所で、中華料理店のハマムラや老舗洋食屋のキャピタル東洋亭などが入っています。",
       "address": "〒601-8412 京都府京都市南区西九条院町",
       "phone_number": "",
       "location": {
@@ -1106,7 +1142,8 @@
     {
       "category": "観光地",
       "name": "蓮華王院（三十三間堂）",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 600,
       "summary": "1,001 体の等身大の千手観音立像で知られる有名な仏教寺院。",
       "address": "〒605-0941 京都府京都市東山区三十三間堂廻り６５７",
       "phone_number": "075-561-0467",
@@ -1150,8 +1187,9 @@
     {
       "category": "観光地",
       "name": "応仁の乱勃発の地碑",
-      "duration_of_stay": 60,
-      "summary": "情報なし",
+      "duration_of_stay": 5,
+      "price": 0,
+      "summary": "応仁の乱勃発地の碑は、1467年1月17日の夜半に上御霊神社の御霊林で東軍畠山政長と西軍畠山義就が交戦したことをきっかけに始まった応仁の乱を記念しています。",
       "address": "〒602-0896 京都府京都市上京区上御霊前町 上 御霊 前 通",
       "phone_number": "",
       "location": {
@@ -1165,8 +1203,9 @@
     {
       "category": "観光地",
       "name": "京都駅ビル空中径路",
-      "duration_of_stay": 60,
-      "summary": "情報なし",
+      "duration_of_stay": 5,
+      "price": 0,
+      "summary": "空中径路は「STAR BRIDGE」という名前で、京都タワーや市内を一望することができます。全長170mの通路にLEDチューブを取り付け、ガラスの反射を利用したインスタレーションが制作されています。",
       "address": "〒600-8216 京都府京都市下京区東塩小路町",
       "phone_number": "075-361-4401",
       "location": {
@@ -1209,7 +1248,8 @@
     {
       "category": "観光地",
       "name": "東福寺",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 500,
       "summary": "1236 年創建の仏教寺院。境内には紅葉で知られる美しい庭園がある。",
       "address": "〒605-0981 京都府京都市東山区本町１５丁目７７８",
       "phone_number": "075-561-0087",
@@ -1254,6 +1294,7 @@
       "category": "観光地",
       "name": "平等院",
       "duration_of_stay": 60,
+      "price": 600,
       "summary": "美しい池、庭園、文化財を収めた建物がある有名な寺院。見学ツアーもある。",
       "address": "〒611-0021 京都府宇治市宇治蓮華１１６",
       "phone_number": "0774-21-2861",
@@ -1297,8 +1338,9 @@
     {
       "category": "観光地",
       "name": "祇園の御神水",
-      "duration_of_stay": 60,
-      "summary": "情報なし",
+      "duration_of_stay": 5,
+      "price": 0,
+      "summary": "「力水」は、地元では気の力を得る水として知られており、水を飲んだ後に隣接する美御前社（うつくしごぜんしゃ）に参ると美人になるといわれています。美御前社には「美」を司る三女神が祀られており、舞妓さんをはじめ若い女性の参拝が絶えません。",
       "address": "〒605-0073 京都府京都市東山区祇園町北側",
       "phone_number": "075-561-6155",
       "location": {
@@ -1312,7 +1354,8 @@
     {
       "category": "観光地",
       "name": "仁和寺",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 800,
       "summary": "886 年創建の美しい庭園と五重塔で知られる由緒ある仏教寺院。",
       "address": "〒616-8092 京都府京都市右京区御室大内３３",
       "phone_number": "075-461-1155",
@@ -1356,8 +1399,9 @@
     {
       "category": "観光地",
       "name": "六角柳",
-      "duration_of_stay": 60,
-      "summary": "情報なし",
+      "duration_of_stay": 10,
+      "price": 0,
+      "summary": "六角堂は、京都の中心に位置する寺院で、縁結びの柳が有名です。",
       "address": "〒604-8134 京都府京都市中京区堂之前町",
       "phone_number": "075-221-2686",
       "location": {
@@ -1400,7 +1444,8 @@
     {
       "category": "観光地",
       "name": "二寧坂 (二年坂)",
-      "duration_of_stay": 60,
+      "duration_of_stay": 5,
+      "price": 0,
       "summary": "伝統的な建物、茶室、桜の花で知られる魅力的な小道。",
       "address": "〒605-0826 京都府京都市東山区桝屋町清水2丁目",
       "phone_number": "",
@@ -1415,7 +1460,8 @@
     {
       "category": "観光地",
       "name": "円山公園",
-      "duration_of_stay": 60,
+      "duration_of_stay": 10,
+      "price": 0,
       "summary": "人気のある緑地。屋外音楽堂、銅像があり、春には艶やかな桜の花を楽しめる。",
       "address": "〒605-0071 京都府京都市東山区円山町",
       "phone_number": "075-561-1778",
@@ -1430,8 +1476,9 @@
     {
       "category": "観光地",
       "name": "ねねの道",
-      "duration_of_stay": 60,
-      "summary": "情報なし",
+      "duration_of_stay": 5,
+      "price": 0,
+      "summary": "ねねの道は、京都東山随一の人気散策スポットで、美しい石畳の道です。高台寺から清水寺へ抜ける約250メートルの道で、豊臣秀吉の正室ねね（北政所）が余生を過ごしたことから名付けられました。",
       "address": "〒605-0825 京都府京都市東山区下河原町 ねねの道",
       "phone_number": "",
       "location": {
@@ -1445,8 +1492,9 @@
     {
       "category": "観光地",
       "name": "西花見小路",
-      "duration_of_stay": 60,
-      "summary": "情報なし",
+      "duration_of_stay": 5,
+      "price": 0,
+      "summary": "西花見小路は、祇園の路地裏にある昔ながらの通りで、低い軒下に格子戸や出格子、駒寄せ構えなどが並び、格子の手すりによしずを垂らした二階屋が並ぶ静かな古都の雰囲気を楽しめる場所です",
       "address": "〒605-0074 京都府京都市東山区祇園町南側５７０−１２３",
       "phone_number": "",
       "location": {
@@ -1461,6 +1509,7 @@
       "category": "観光地",
       "name": "建仁寺",
       "duration_of_stay": 60,
+      "price": 600,
       "summary": "由緒ある壮麗な仏教寺院。伝統的な枯山水庭園、茶室、色鮮やかな障壁画などがある。",
       "address": "〒605-0811 京都府京都市東山区大和大路通四条下る小松町５８４番地",
       "phone_number": "075-561-6363",
@@ -1504,8 +1553,9 @@
     {
       "category": "観光地",
       "name": "あじき路地",
-      "duration_of_stay": 60,
-      "summary": "情報なし",
+      "duration_of_stay": 5,
+      "price": 0,
+      "summary": "あじき路地は、京都市東山区にある長屋で、12軒の古い京町家が連なり、かつては祇園の芸者が住んでいました。現在は若手職人たちの住宅・工房として利用され、週末には店舗として営業しています。麻生みことのマンガ『路地恋花』のモデルにもなっています。",
       "address": "〒605-0831 京都府京都市東山区大黒町通松原下ル山城町 2丁目山城町284",
       "phone_number": "",
       "location": {
@@ -1519,8 +1569,9 @@
     {
       "category": "観光地",
       "name": "アイランド・レイク (水の浮島)",
-      "duration_of_stay": 60,
-      "summary": "情報なし",
+      "duration_of_stay": 5,
+      "price": 0,
+      "summary": "アイランド・レイク（水の浮島）は、神泉苑に代表される庭園の池と御池通にちなんで造られ、宇宙的な雰囲気を醸し出しています",
       "address": "〒604-8006 京都府京都市中京区下丸屋町",
       "phone_number": "",
       "location": {
@@ -1534,8 +1585,9 @@
     {
       "category": "観光地",
       "name": "魁桜",
-      "duration_of_stay": 60,
-      "summary": "情報なし",
+      "duration_of_stay": 5,
+      "price": 0,
+      "summary": "魁桜（さきがけざくら）は、京都市北区平野宮本町にある平野神社の桜です。平野神社は京都の桜の名所として知られており、境内には60種類、約400本の桜が植えられています。",
       "address": "〒603-8322 京都府京都市北区平野宮本町",
       "phone_number": "075-461-4450",
       "location": {
@@ -1549,7 +1601,8 @@
     {
       "category": "観光地",
       "name": "法観寺 八坂の塔",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 500,
       "summary": "壮麗な五重塔がある仏教寺院。最上階からは素晴らしい眺めが一望できる。",
       "address": "〒605-0862 京都府京都市東山区清水八坂上町３８８",
       "phone_number": "075-551-2417",
@@ -1573,8 +1626,9 @@
     {
       "category": "観光地",
       "name": "宮川町の町並み",
-      "duration_of_stay": 60,
-      "summary": "情報なし",
+      "duration_of_stay": 10,
+      "price": 0,
+      "summary": "京都の花街である宮川町は、鴨川左岸の京都市東山区宮川筋二丁目から六丁目に位置しています。京都を代表する祇園の花街よりもこじんまりとした花街で、白木の木目調の町並みが特徴です。",
       "address": "〒605-0801 京都府京都市東山区宮川筋３丁目",
       "phone_number": "075-561-1151",
       "location": {
@@ -1588,8 +1642,9 @@
     {
       "category": "観光地",
       "name": "駅伝発祥の地",
-      "duration_of_stay": 60,
-      "summary": "情報なし",
+      "duration_of_stay": 5,
+      "price": 0,
+      "summary": "大正6年（1917）4月27日、日本で初めての駅伝が京都三条大橋からスタートしました。正式名称は「東京都五十年奉祝・東海道駅伝徒歩競争」で、読売新聞社が主催しました。この駅伝は、京都・三条大橋から東京・上野不忍池の博覧会正面玄関までの508kmを23区間に分けたもので、3日間にわたって開催されました。天竜川や木曽川には橋がかかっていなかったため、渡し船で渡ったと言われています。",
       "address": "〒605-0009 京都府京都市東山区大橋町",
       "phone_number": "",
       "location": {
@@ -1603,8 +1658,9 @@
     {
       "category": "観光地",
       "name": "膏薬辻子(膏薬図子)",
-      "duration_of_stay": 60,
-      "summary": "情報なし",
+      "duration_of_stay": 10,
+      "price": 0,
+      "summary": "膏薬辻子（こうやくのずし）は、四条通から中ほどで折れ曲がり綾小路通まで走る細い道の名称です。この地域は、大納言藤原公任の邸宅があり、後に空也上人が念仏修行を始めた場所でもあります。この風情ある道を歩くと、京都の静寂と喧騒が交差する美しい光景が広がります",
       "address": "〒600-8471 京都府京都市下京区新釜座町７３２",
       "phone_number": "",
       "location": {
@@ -1618,7 +1674,8 @@
     {
       "category": "観光地",
       "name": "金剛寺（八坂庚申堂）",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 200,
       "summary": "手足を縛られた猿を表す「くくり猿」と呼ばれる色鮮やかな玉で知られる寺。",
       "address": "〒605-0828 京都府京都市東山区金園町３９０",
       "phone_number": "075-541-2565",
@@ -1662,7 +1719,8 @@
     {
       "category": "観光地",
       "name": "二条城二の丸御殿",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 1300,
       "summary": "徳川将軍の壮麗な宿泊所。障壁画と伝統的な庭園がある。",
       "address": "〒604-8301 京都府京都市中京区二条通堀川西入二条城町541番地",
       "phone_number": "075-841-0096",
@@ -1706,7 +1764,8 @@
     {
       "category": "観光地",
       "name": "五重塔",
-      "duration_of_stay": 60,
+      "duration_of_stay": 30,
+      "price": 800,
       "summary": "有名な寺の境内にそびえ立つ五重塔。豪華な内装が施されている。現在の塔は 5 代目にあたる。",
       "address": "〒601-8473 京都府京都市南区九条町 1番地",
       "phone_number": "075-691-3325",
@@ -1750,7 +1809,8 @@
     {
       "category": "観光地",
       "name": "京都国立近代美術館",
-      "duration_of_stay": 60,
+      "duration_of_stay": 45,
+      "price": 450,
       "summary": "20 世紀の国内芸術家の常設コレクションを展示する美術館。定期的な展示替えが行われる。",
       "address": "〒606-8344 京都府京都市左京区岡崎円勝寺町２６−１",
       "phone_number": "075-761-4111",
@@ -1790,7 +1850,8 @@
     {
       "category": "ホテル",
       "name": "ホテルモントレ京都",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "無料 Wi-Fi 完備の高級ホテル。レストラン 2 軒、カフェ＆バー、温泉風呂を備えたスパを併設。",
       "address": "〒604-8161 京都府京都市中京区烏丸通三条下ル饅頭屋町６０４",
       "phone_number": "075-251-7111",
@@ -1805,7 +1866,8 @@
     {
       "category": "ホテル",
       "name": "リーガロイヤルホテル 京都",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "モダンな客室とスイートを備えた高級ホテル。シックなレストラン 6 軒、バー、屋内プールあり。",
       "address": "〒600-8237 京都府京都市下京区松明町 1番地",
       "phone_number": "075-341-1121",
@@ -1820,7 +1882,8 @@
     {
       "category": "ホテル",
       "name": "HOTEL M's PLUS SHIJO OMIYA",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "シンプルな客室にデザイナー アメニティを備えたモダンなホテル。Wi-Fi とランドリーを完備。",
       "address": "〒604-8365 京都府京都市中京区錦大宮町１１４",
       "phone_number": "075-813-0258",
@@ -1835,7 +1898,8 @@
     {
       "category": "ホテル",
       "name": "三井ガーデンホテル京都四条",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "くつろげる内装の客室を備えた実用的なホテル。レストランと大浴場を完備する。",
       "address": "〒600-8472 京都府京都市下京区西洞院通四条下ル妙伝寺町７０７−１",
       "phone_number": "075-361-5531",
@@ -1850,7 +1914,8 @@
     {
       "category": "ホテル",
       "name": "京都ブライトンホテル",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "おしゃれな客室とスイートを備えた洗練されたホテル。レストラン 4 軒を併設。地下鉄駅までの無料送迎サービスあり。",
       "address": "〒602-8071 京都府京都市上京区仕丁町３３０",
       "phone_number": "075-441-4411",
@@ -1865,7 +1930,8 @@
     {
       "category": "ホテル",
       "name": "ホテルリブマックス京都二条城北",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "シンプルな内装の客室を備えた簡素なホテル。無料 Wi-Fi 完備。",
       "address": "〒602-8145 京都府京都市上京区左馬松町７７５",
       "phone_number": "075-823-7750",
@@ -1880,7 +1946,8 @@
     {
       "category": "ホテル",
       "name": "都ホテル 京都八条",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "温かみのある客室とシックなスイートを備えた高級ホテル。4 軒のレストラン、ロビーラウンジ、豪華なバーがある。",
       "address": "〒601-8412 京都府京都市南区西九条院町１７",
       "phone_number": "075-661-7111",
@@ -1895,7 +1962,8 @@
     {
       "category": "ホテル",
       "name": "ホテル グラン・エムズ京都",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "居心地の良い客室を備えた赤レンガの建物の明るく広々としたホテル。ランドリー設備あり。",
       "address": "〒604-8006 京都府京都市中京区下丸屋町４１０−３",
       "phone_number": "075-241-2000",
@@ -1910,7 +1978,8 @@
     {
       "category": "ホテル",
       "name": "IMU HOTEL KYOTO",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "シンプルな客室の居心地の良いホテル。開放的なカフェバー、ラウンジ、貸し出し用スマートフォンがある。",
       "address": "〒600-8445 京都府京都市下京区岩戸山町４１１",
       "phone_number": "075-353-1616",
@@ -1925,7 +1994,8 @@
     {
       "category": "ホテル",
       "name": "ホテルグランヴィア京都",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "シックな客室とスイートを備えた広大な高級ホテル。高級レストランと屋内プールを併設。市街を一望できる。",
       "address": "〒600-8216 京都府京都市下京区東塩小路町９０１ 京都駅ビル 内",
       "phone_number": "075-344-8888",
@@ -1940,7 +2010,8 @@
     {
       "category": "ホテル",
       "name": "ホテルリソル京都 四条室町",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "落ち着いた雰囲気のホテル。くつろげる客室は無料 Wi-Fi を完備。カジュアルなイタリアン スタイルのカフェを併設。",
       "address": "〒600-8424 京都府京都市下京区室町通高辻上る山王町５５４",
       "phone_number": "075-365-9269",
@@ -1955,7 +2026,8 @@
     {
       "category": "ホテル",
       "name": "三井ガーデンホテル京都三条",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "洗練された客室を備えたくつろげるホテル。カジュアルなレストランと大浴場がある。",
       "address": "〒604-8166 京都府京都市中京区三条通烏丸西入御倉町80番",
       "phone_number": "075-256-3331",
@@ -1970,7 +2042,8 @@
     {
       "category": "ホテル",
       "name": "ヴィアイン京都四条室町",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "モダンな客室の洗練されたホテル。Wi-Fi、ランドリー設備、ビジネスセンターを完備。",
       "address": "〒604-8156 京都府京都市中京区山伏山町５５１−２",
       "phone_number": "075-256-6111",
@@ -1985,7 +2058,8 @@
     {
       "category": "ホテル",
       "name": "ホテルマイステイズ京都四条",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "明るい客室を備えたシンプルなホテル。くつろげる郷土料理レストラン、サロン、無料 Wi-Fi を完備。",
       "address": "〒600-8494 京都府京都市下京区四条通油小路東入ル傘鉾町５２",
       "phone_number": "075-283-3939",
@@ -2000,7 +2074,8 @@
     {
       "category": "ホテル",
       "name": "ホテルメルディア京都四条大宮 HOTEL MELDIA KYOTO SHIJO OMIYA",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "情報なし",
       "address": "〒600-8383 京都府京都市下京区大宮通綾小路下る綾大宮町６６",
       "phone_number": "075-334-6648",
@@ -2015,7 +2090,8 @@
     {
       "category": "ホテル",
       "name": "オリエンタルホテル 京都六条",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "シンプルな客室を備えた高級ホテル。レストラン、バー、カフェ、庭園がある。",
       "address": "〒600-8333 京都府京都市下京区卜味金仏町１８１",
       "phone_number": "075-343-8111",
@@ -2030,7 +2106,8 @@
     {
       "category": "ホテル",
       "name": "スマイルホテル京都四条",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "シンプルな客室を備えた気取らないホテル。カジュアルなレストランあり。Wi-Fi 無料。",
       "address": "〒600-8494 京都府京都市下京区傘鉾町５９−６１",
       "phone_number": "075-371-0941",
@@ -2045,7 +2122,8 @@
     {
       "category": "ホテル",
       "name": "チサン プレミアム 京都九条",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "情報なし",
       "address": "〒601-8015 京都府京都市南区東九条上御霊町１５−１",
       "phone_number": "075-672-6180",
@@ -2060,7 +2138,8 @@
     {
       "category": "ホテル",
       "name": "からすま京都ホテル",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "シンプルな客室を備えた気取らないホテル。和室もある。バーとレストランを併設。",
       "address": "〒600-8412 京都府京都市下京区二帖半敷町 からすま京都ホテル",
       "phone_number": "075-371-0111",
@@ -2075,7 +2154,8 @@
     {
       "category": "ホテル",
       "name": "レフ京都八条口 by ベッセルホテルズ",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "シンプルな客室を備えた現代的なホテル。インダストリアル シックなバー、中庭がある。朝食を提供。",
       "address": "〒601-8001 京都府京都市南区東九条室町５７",
       "phone_number": "075-662-7001",
@@ -2090,7 +2170,8 @@
     {
       "category": "ホテル",
       "name": "京都かまんざホテル",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "上品な漆塗りの家具を配した客室を提供する計10室の和モダンな観光ホテル。全室にブランド製ベッドと羽毛布団を採用し、全室禁煙。",
       "address": "〒604-0035 京都府京都市中京区上松屋町 702",
       "phone_number": "075-205-0817",
@@ -2134,7 +2215,8 @@
     {
       "category": "ホテル",
       "name": "OMO5京都三条 by 星野リゾート",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "Wi-Fi 完備のシンプルな客室を備えた飾らないホテル。2 軒のカフェを併設。朝食を提供。",
       "address": "〒604-8005 京都府京都市中京区河原町通三条上る恵比須町４３４−１",
       "phone_number": "050-3134-8095",
@@ -2149,7 +2231,8 @@
     {
       "category": "ホテル",
       "name": "三井ガーデンホテル京都新町 別邸",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "ミニ冷蔵庫付きの洗練された客室を備えた高級ホテル。シンプルなインテリアのレストランと大浴場を併設。",
       "address": "〒604-8212 京都府京都市中京区六角町３６１ 三井ガーデンホテル京都新町別邸 1F",
       "phone_number": "075-257-1131",
@@ -2164,7 +2247,8 @@
     {
       "category": "ホテル",
       "name": "ホテルフォルツァ京都四条河原町",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "落ち着いた雰囲気の客室を備えたシンプルなホテル。ソファベッドを備えた客室もある。朝食を提供。",
       "address": "〒600-8005 京都府京都市下京区四条通麩屋町西入立売東町２５−１",
       "phone_number": "075-254-8251",
@@ -2179,7 +2263,8 @@
     {
       "category": "ホテル",
       "name": "sequence KYOTO GOJO",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "シンプルな客室を備えた現代的なホテル。おしゃれなカフェバーを併設。スパエリアもある。",
       "address": "〒600-8418 京都府京都市下京区五条烏丸町４０９",
       "phone_number": "075-353-0031",
@@ -2194,7 +2279,8 @@
     {
       "category": "ホテル",
       "name": "ホテルエクセレンス・京都駅八条口",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "簡素な客室を備えた機能的なビジネスホテル。朝食無料。",
       "address": "〒601-8417 京都府京都市南区西九条鳥居口町５",
       "phone_number": "075-672-5861",
@@ -2209,7 +2295,8 @@
     {
       "category": "ホテル",
       "name": "ホテルオークラ京都",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "4 軒のレストラン、2 軒のバー、フィットネス センター、屋内プールを備えた上品なホテル。",
       "address": "〒604-8558 京都府京都市中京区一之船入町 河原町御池",
       "phone_number": "075-211-5111",
@@ -2224,7 +2311,8 @@
     {
       "category": "ホテル",
       "name": "HOTEL M's EST SHIJO KARASUMA",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "ミニ冷蔵庫完備のシンプルな客室を備えたモダンなホテル。Wi-Fi 無料。",
       "address": "〒600-8091 京都府京都市下京区元悪王子町41",
       "phone_number": "075-353-5290",
@@ -2239,7 +2327,8 @@
     {
       "category": "ホテル",
       "name": "京都プラザホテル本館・新館",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "シンプルな客室を備えた簡素なホテル。カジュアルなカフェラウンジと大浴場がある。客室でのマッサージを利用可能。",
       "address": "〒601-8414 京都府京都市南区西九条蔵王町２８",
       "phone_number": "075-691-0100",
@@ -2254,7 +2343,8 @@
     {
       "category": "ホテル",
       "name": "東急ステイ 京都三条烏丸",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "シンプルな内装の客室を備えた現代的なホテル。インターネットは無料。",
       "address": "〒604-8173 京都府京都市中京区柿本町392番",
       "phone_number": "075-221-0109",
@@ -2269,7 +2359,8 @@
     {
       "category": "ホテル",
       "name": "EN HOTEL Kyoto",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "シンプルな客室の機能的なホテル。カジュアルなレストランあり。無料 Wi-Fi 完備。",
       "address": "〒600-8472 京都府京都市下京区妙伝寺町６９８",
       "phone_number": "075-361-0505",
@@ -2284,7 +2375,8 @@
     {
       "category": "ホテル",
       "name": "RAKURO 京都 by THE SHARE HOTELS",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "レストランバー、ライブラリー、屋上テラス、Wi-Fi を備えた気取らないホテル。",
       "address": "〒604-0867 京都府京都市中京区常真横町１８６",
       "phone_number": "075-221-0960",
@@ -2299,7 +2391,8 @@
     {
       "category": "ホテル",
       "name": "リーガグラン京都",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "くつろげる客室を備えた洗練されたホテル。シックなレストランバーを併設。大浴場もある。",
       "address": "〒601-8003 京都府京都市南区東九条西山王町 1番地",
       "phone_number": "075-662-1121",
@@ -2314,7 +2407,8 @@
     {
       "category": "ホテル",
       "name": "変なホテル京都 八条口駅前",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "シンプルな客室を備えた遊び心いっぱいのホテル。レストランを併設。フロントは恐竜ロボットによる非対面チェックイン。",
       "address": "〒601-8004 京都府京都市南区東九条東山王町１５",
       "phone_number": "050-5576-8390",
@@ -2329,7 +2423,8 @@
     {
       "category": "ホテル",
       "name": "ホテルウィングインターナショナルプレミアム京都三条",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "駅に近いシンプルなホテル。気取らない客室を備える。ソファ付きの客室もある。",
       "address": "〒606-8363 京都府京都市左京区和国町４０７−６",
       "phone_number": "075-761-1000",
@@ -2344,7 +2439,8 @@
     {
       "category": "ホテル",
       "name": "サクラテラス",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "無料 Wi-Fi 付きのシンプルな客室を備えたくつろげるホテル。テラス席のあるバーを併設。",
       "address": "〒601-8016 京都府京都市南区東九条烏丸町１−１",
       "phone_number": "075-692-1112",
@@ -2359,7 +2455,8 @@
     {
       "category": "ホテル",
       "name": "ホテルウィングインターナショナル京都四条烏丸",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "機能的な客室のくつろげるホテル。開放的なカフェバーを併設。Wi-Fi 無料。",
       "address": "〒600-8425 京都府京都市下京区骨屋町３１９",
       "phone_number": "075-284-0111",
@@ -2374,7 +2471,8 @@
     {
       "category": "ホテル",
       "name": "ホテルリブマックス BUDGET京都五条",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "コンパクトな客室の簡素なホテル。座ってくつろげるスペースを備えた部屋もある。無料 Wi-Fi 完備。",
       "address": "〒600-8357 京都府京都市下京区猪熊通五条西入柿本町６９８−２",
       "phone_number": "075-341-1173",
@@ -2418,7 +2516,8 @@
     {
       "category": "ホテル",
       "name": "静鉄ホテルプレジオ京都四条",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "リラックスした雰囲気のホテル。シンプルな客室に、薄型テレビを完備。一部の客室にはソファまたはマッサージ チェアがある。",
       "address": "〒604-8232 京都府京都市中京区空也町 錦小路上る古西町452",
       "phone_number": "075-741-7891",
@@ -2433,7 +2532,8 @@
     {
       "category": "ホテル",
       "name": "京都アースホテル",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "くつろげる客室を備えた、川に近いシンプルなホテル。バルコニー付きの客室もある。Wi-Fi 完備。",
       "address": "〒602-0872 京都府京都市上京区駒之町５４１",
       "phone_number": "075-256-8115",
@@ -2448,7 +2548,8 @@
     {
       "category": "ホテル",
       "name": "TUNE STAY KYOTO（HIDEOUT）",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "シンプルな客室を備えたおしゃれなホテル。共用キッチン、アートスペース、ジンバーを併設。",
       "address": "〒600-8310 京都府京都市下京区夷之町７０８",
       "phone_number": "075-644-6660",
@@ -2492,7 +2593,8 @@
     {
       "category": "ホテル",
       "name": "スーパーホテル京都・四条河原町",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "シンプルな客室を備えた格式ばらないホテル。温泉あり。朝食ビュッフェ込み。",
       "address": "〒604-8042 京都府京都市中京区新京極通り四条上る中之町５３８−１",
       "phone_number": "075-255-9000",
@@ -2507,7 +2609,8 @@
     {
       "category": "ホテル",
       "name": "コンフォートホテル京都堀川五条",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "貸し自転車とコインランドリー、ライブラリー カフェを備えた落ち着いたホテル。",
       "address": "〒600-8338 京都府京都市下京区堀川通五条下る泉水町１３４−３２",
       "phone_number": "075-361-7411",
@@ -2522,7 +2625,8 @@
     {
       "category": "ホテル",
       "name": "ホテル アマネク 京都河原町五条",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "ラウンジバー、屋内大浴場、コイン ランドリーを備えたくつろぎのホテル。朝食を提供。",
       "address": "〒600-8040 京都府京都市下京区安土町616番",
       "phone_number": "075-353-5050",
@@ -2537,7 +2641,8 @@
     {
       "category": "ホテル",
       "name": "ホテルチェックイン四条烏丸",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "明るく居心地の良い客室を備えた洗練されたホテル。コンビニエンス ストアとシンプルなレストランを併設。",
       "address": "〒604-8152 京都府京都市中京区手洗水町６５４−２",
       "phone_number": "075-252-5100",
@@ -2552,7 +2657,8 @@
     {
       "category": "ホテル",
       "name": "ホテルビスタプレミオ京都［河原町通］",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "モダンなホテル。シンプルな客室のほか、レストランが 2 軒ある。レンタサイクルあり。無料 Wi-Fi を完備。",
       "address": "〒604-8034 京都府京都市中京区河原町通六角西入ル松ケ枝町４５７ ホテルビスタプレミオ京都河原町通",
       "phone_number": "075-256-5888",
@@ -2567,7 +2673,8 @@
     {
       "category": "ホテル",
       "name": "ホテルインターゲート京都 四条新町",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "くつろげる客室とスイートのある落ち着いたホテル。カフェ、大浴場、アート ギャラリーを併設。",
       "address": "〒604-8214 京都府京都市中京区新町通錦小路上る百足屋町３８７",
       "phone_number": "075-255-2221",
@@ -2582,7 +2689,8 @@
     {
       "category": "ホテル",
       "name": "ヴィアインプライム京都駅八条口",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "シンプルな内装の客室を備えた気取らないホテル。宿泊客用ランドリーと無料 Wi-Fi を完備。",
       "address": "〒601-8002 京都府京都市南区室町通針小路東入ル東九条上殿田町４４−１",
       "phone_number": "075-662-5489",
@@ -2597,7 +2705,8 @@
     {
       "category": "ホテル",
       "name": "アーバンホテル京都二条プレミアム",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "シンプルな客室を備えた居心地の良いホテル。レストラン、サウナ付き大浴場を併設。",
       "address": "〒604-8411 京都府京都市中京区聚楽廻南町２５−５",
       "phone_number": "075-813-1177",
@@ -2612,7 +2721,8 @@
     {
       "category": "ホテル",
       "name": "リッチモンドホテルプレミア京都四条",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "情報なし",
       "address": "〒600-8494 京都府京都市下京区四条通油小路東入傘鉾町 ５０番",
       "phone_number": "075-585-5730",
@@ -2627,7 +2737,8 @@
     {
       "category": "ホテル",
       "name": "ホテルグレイスリー 京都三条",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "無料 Wi-Fi を完備したシンプルなホテル。オープン キッチンのレストランを併設。",
       "address": "〒604-8035 京都府京都市中京区桜之町４２０",
       "phone_number": "075-222-1111",
@@ -2642,7 +2753,8 @@
     {
       "category": "ホテル",
       "name": "M's Hotel Sanjo Wakoku",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "居心地の良いシンプルな客室を備えた飾らないホテル。客室には、Wi-Fi、薄型テレビ、ミニ冷蔵庫を完備。",
       "address": "〒606-8363 京都府京都市左京区和国町３９６",
       "phone_number": "075-320-4141",
@@ -2657,7 +2769,8 @@
     {
       "category": "ホテル",
       "name": "ホテル・京都・ベース 四条烏丸",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "無料 Wi-Fi 完備のシンプルな客室を備えた簡素なホテル。カジュアルなコーヒー ショップを併設。",
       "address": "〒600-8417 京都府京都市下京区松原通烏丸東入ル南側俊成町４３８ 1F",
       "phone_number": "075-352-1717",
@@ -2672,7 +2785,8 @@
     {
       "category": "ホテル",
       "name": "OMO5京都祇園 by 星野リゾート",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "情報なし",
       "address": "〒605-0073 京都府京都市東山区四条通大和大路東入祇園町北側２８８",
       "phone_number": "050-3134-8095",
@@ -2687,7 +2801,8 @@
     {
       "category": "ホテル",
       "name": "ホテルグラッドワン京都七条 by M's",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "情報なし",
       "address": "〒600-8126 京都府京都市下京区正面通 木屋町東 入北側鍵屋町337",
       "phone_number": "075-354-7200",
@@ -2702,7 +2817,8 @@
     {
       "category": "ホテル",
       "name": "京都 花ホテル",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "くつろげる客室を備えた簡素なホテル。バルコニーやソファベッド付きの客室もある。シンプルなダイニングあり。",
       "address": "〒605-0001 京都府京都市東山区二町目53番1号",
       "phone_number": "075-754-0870",
@@ -2717,7 +2833,8 @@
     {
       "category": "ホテル",
       "name": "ホテルユニゾ 京都烏丸御池",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "落ち着いた客室を備えた気取らないホテル。レストランを併設。朝食を提供。",
       "address": "〒604-0824 京都府京都市中京区堺町通押小路下る扇屋町６６１",
       "phone_number": "075-256-8221",
@@ -2732,7 +2849,8 @@
     {
       "category": "ホテル",
       "name": "Travelodge Kyoto Shijo Kawaramachi [トラベロッジ京都四条河原町]",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "情報なし",
       "address": "240 Yamazaki-cho, 2 chome, Kawaramachi-dori Sanjo-sagaru, shi, 中京区 京都市 京都府 604-8032",
       "phone_number": "075-255-8811",
@@ -2747,7 +2865,8 @@
     {
       "category": "ホテル",
       "name": "ザ町家エビスヤ",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "情報なし",
       "address": "〒600-8062 京都府京都市下京区恵美須屋町１９２−１",
       "phone_number": "075-365-2333",
@@ -2762,7 +2881,8 @@
     {
       "category": "ホテル",
       "name": "ABホテル 京都四条堀川",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "Wi-Fi 完備の気取らないホテル。朝食ビュッフェを提供。温泉大浴場がある。",
       "address": "〒600-8498 京都府京都市下京区柏屋町５",
       "phone_number": "075-252-0413",
@@ -2777,7 +2897,8 @@
     {
       "category": "鉄道の駅",
       "name": "京都鉄道博物館",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "鉄道に関する展示物、機関車や列車の陳列がある現代的な博物館。",
       "address": "〒600-8835 京都府京都市下京区観喜寺町",
       "phone_number": "",
@@ -2817,7 +2938,8 @@
     {
       "category": "鉄道の駅",
       "name": "嵐山駅",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "情報なし",
       "address": "〒616-8385 京都府京都市右京区嵯峨天龍寺芒ノ馬場町６３−１",
       "phone_number": "",
@@ -2832,7 +2954,8 @@
     {
       "category": "鉄道の駅",
       "name": "鉄道博物館",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "国内外の鉄道発展の歴史を中心とした、体験型展示のある現代的な博物館。",
       "address": "〒330-0852 埼玉県さいたま市大宮区大成町３丁目４７",
       "phone_number": "048-651-0088",
@@ -2872,7 +2995,8 @@
     {
       "category": "鉄道の駅",
       "name": "車折神社駅",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "情報なし",
       "address": "日本、〒616-8347 京都府京都市右京区嵯峨中又町",
       "phone_number": "",
@@ -2887,7 +3011,8 @@
     {
       "category": "鉄道の駅",
       "name": "京都駅",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "ショップ、飲食店、各種サービス、映画館、ホテルがある 15 階建ての大きな駅。",
       "address": "〒600-8216 京都府京都市下京区東塩小路釜殿町",
       "phone_number": "",
@@ -2902,7 +3027,8 @@
     {
       "category": "鉄道の駅",
       "name": "国道駅",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "情報なし",
       "address": "日本、〒230-0051 神奈川県横浜市鶴見区鶴見中央５丁目２６",
       "phone_number": "",
@@ -2917,7 +3043,8 @@
     {
       "category": "鉄道の駅",
       "name": "チンチン電車のりば (すざくゆめ広場)",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "情報なし",
       "address": "〒600-8835 京都府京都市下京区観喜寺町",
       "phone_number": "",
@@ -2941,7 +3068,8 @@
     {
       "category": "鉄道の駅",
       "name": "JR西日本 京都電車区",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "情報なし",
       "address": "〒600-8235 京都府京都市下京区東油小路町８０１",
       "phone_number": "",
@@ -2956,7 +3084,8 @@
     {
       "category": "鉄道の駅",
       "name": "京都鉄道博物館 SLスチーム号",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "情報なし",
       "address": "〒600-8835 京都府京都市下京区観喜寺町",
       "phone_number": "0570-080-462",
@@ -3000,7 +3129,8 @@
     {
       "category": "鉄道の駅",
       "name": "京阪電車　七条駅",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "情報なし",
       "address": "日本、〒605-0992 京都府京都市東山区下堀詰町",
       "phone_number": "",
@@ -3015,7 +3145,8 @@
     {
       "category": "鉄道の駅",
       "name": "西院駅（京福電気鉄道）",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "情報なし",
       "address": "日本、〒604-8854 京都府京都市中京区壬生仙念町",
       "phone_number": "",
@@ -3030,7 +3161,8 @@
     {
       "category": "鉄道の駅",
       "name": "弁天橋駅",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "情報なし",
       "address": "日本、〒230-0044 神奈川県横浜市鶴見区弁天町",
       "phone_number": "",
@@ -3045,7 +3177,8 @@
     {
       "category": "鉄道の駅",
       "name": "東京駅",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "情報なし",
       "address": "〒100-0005 東京都千代田区丸の内１丁目９",
       "phone_number": "",
@@ -3060,7 +3193,8 @@
     {
       "category": "鉄道の駅",
       "name": "梅小路京都西駅",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "情報なし",
       "address": "日本、〒600-8835 京都府京都市下京区観喜寺町",
       "phone_number": "",
@@ -3075,7 +3209,8 @@
     {
       "category": "鉄道の駅",
       "name": "鳴滝駅",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "情報なし",
       "address": "日本、〒616-8234 京都府京都市右京区鳴滝嵯峨園町",
       "phone_number": "",
@@ -3090,7 +3225,8 @@
     {
       "category": "鉄道の駅",
       "name": "鞍馬駅",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "情報なし",
       "address": "〒601-1111 京都府京都市左京区鞍馬本町１９１",
       "phone_number": "075-741-2012",
@@ -3105,7 +3241,8 @@
     {
       "category": "鉄道の駅",
       "name": "京都市役所前駅",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "情報なし",
       "address": "日本、〒604-8006 京都府京都市中京区下丸屋町",
       "phone_number": "075-213-1364",
@@ -3120,7 +3257,8 @@
     {
       "category": "鉄道の駅",
       "name": "向日町駅",
-      "duration_of_stay": 60,
+      "duration_of_stay": 0,
+      "price": 0,
       "summary": "情報なし",
       "address": "日本、〒617-0002 京都府向日市寺戸町久々相",
       "phone_number": "",

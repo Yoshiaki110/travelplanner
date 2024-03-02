@@ -6,6 +6,32 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <title>トラベルプランナー</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <style>
+      .rate-form {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+      }
+      .rate-form input[type=radio] {
+        display: none;
+      }
+      .rate-form label {
+        position: relative;
+        padding: 0 1px;
+        color: #ccc;
+        cursor: pointer;
+        font-size: 18px;
+      }
+      .rate-form label:hover {
+        color: #ffcc00;
+      }
+      .rate-form label:hover ~ label {
+        color: #ff0000;
+      }
+      .rate-form input[type=radio]:checked ~ label {
+        color: #ff0000;
+      }
+    </style>
   </head>
   <body>
     <div class="card card-body">
@@ -56,7 +82,7 @@
                 </div>
               </div>
               <label class="col-2">滞在時間</label>
-              <label class="col-2">優先度(1-3)</label>
+              <label class="col-2">優先度</label>
             </div>
             <div id="areas1" class="form-row"></div>
           </div>
@@ -106,7 +132,6 @@
               <input class="form-control form-control-sm" type="number" id="mm" min="0" max="59" maxlength="2">
             </label>
           </div>
-          
           <p>
             <button id="calc-button" type="button" class="btn btn-primary btn-block" onclick="chg_cb();">
               <span id="calc-spinner" class="spinner-border spinner-border-sm" hidden="hidden"></span>
@@ -332,14 +357,16 @@
           for (var i = 0; i < _areas.length; i++) {
             var elmx_cb = document.getElementById("area" + i);
             try {
-              var priority = document.getElementById("priority_val" + i).value;
+              //var priority = document.getElementById("priority_val" + i).value;
+              var form_rate = document.getElementById("rate" + i);
+              var priority = form_rate.elements['rate'].value;
             } catch(e) {
               console.log(e);
             }
             
             if (elmx_cb.checked && priority >= level) {
               var elmx_val = document.getElementById("area_val" + i);
-              console.log(_areas[i]["name"], _areas[i]["location"]);
+              console.log(_areas[i]["name"], _areas[i]["location"], priority);
               areas.push([_areas[i]["name"], elmx_val.value, [_areas[i]["location"]["lat"],_areas[i]["location"]["lng"]]]);
             }
           }
@@ -528,15 +555,28 @@
       // 到着期限
       function setEndTime() {
         let date = new Date();
+        var hh = 18;
+        if (date.getHours() > 16) {
+          hh = 23;
+        }
+        /*
         date.setMinutes(date.getMinutes() + 60 * 3);
         let strdate = strTime(date);
         let hh = strdate.slice(0, 2);
         document.getElementById("hh").value = hh - 0;
         let mm = strdate.slice(3, 5);
         document.getElementById("mm").value = mm - 0;
+        */
+        document.getElementById("hh").value = hh;
+        document.getElementById("mm").value = 30;
       }
 
-      function areadetail(name) {
+      function areadetail(val) {
+        name = val;
+        if (val.indexOf( '円）') != -1) {
+          var idx = val.lastIndexOf( '（' );
+          name = val.substr(0, idx);
+        }
         for (area of _areas) {
           if (name == area["name"]) {
             diagmsg(area["name"], area["summary"], area["photo"])
@@ -574,7 +614,11 @@
             elm_form_check_label.type = "button";
             elm_form_check_label.className = "btn btn-light btn-block";
             //elm_form_check_label.style.textAlign = "left";
-            elm_form_check_label.textContent = _areas[i]["name"];
+            if (_areas[i]["price"] == 0) {
+              elm_form_check_label.textContent = _areas[i]["name"];
+            } else {
+              elm_form_check_label.textContent = _areas[i]["name"] + '（' + _areas[i]["price"] + '円）' ;
+            }
             elm_form_check_label.onclick = function(arg) {
               areadetail(arg.target.textContent)
             };
@@ -588,7 +632,7 @@
             elm_form_check_input1.type = "number";
             elm_form_check_input1.value = _areas[i]["duration_of_stay"];
             elm_form_check_input1.setAttribute('id', "area_val" + i);
-
+/*
             elm_form_check_input2 = document.createElement("input");
             elm_form_check_input2.className = "form-control form-control-sm col-2";
             elm_form_check_input2.type = "number";
@@ -597,6 +641,44 @@
             elm_form_check_input2.setAttribute('min', "1" + i);
             elm_form_check_input2.setAttribute('max', "3" + i);
             elm_form_check_input2.setAttribute('maxlength', "1" + i);
+*/
+            elm_rate_form = document.createElement("form");
+            elm_rate_form.className = "rate-form";
+            elm_rate_form.setAttribute('id', "rate" + i);
+
+            elm_rate_radio3 = document.createElement("input");
+            elm_rate_radio3.setAttribute('id', "rate" + i + '-3');
+            elm_rate_radio3.type = "radio";
+            elm_rate_radio3.name = "rate";
+            elm_rate_radio3.value = 3;
+            elm_rate_radio3.setAttribute('checked', "checked");
+            elm_rate_form.appendChild(elm_rate_radio3);
+            elm_rate_label3 = document.createElement("label");
+            elm_rate_label3.setAttribute('for', "rate" + i + '-3');
+            elm_rate_label3.textContent = '♥';
+            elm_rate_form.appendChild(elm_rate_label3);
+
+            elm_rate_radio2 = document.createElement("input");
+            elm_rate_radio2.setAttribute('id', "rate" + i + '-2');
+            elm_rate_radio2.type = "radio";
+            elm_rate_radio2.name = "rate";
+            elm_rate_radio2.value = 2;
+            elm_rate_form.appendChild(elm_rate_radio2);
+            elm_rate_label2 = document.createElement("label");
+            elm_rate_label2.setAttribute('for', "rate" + i + '-2');
+            elm_rate_label2.textContent = '♥';
+            elm_rate_form.appendChild(elm_rate_label2);
+
+            elm_rate_radio1 = document.createElement("input");
+            elm_rate_radio1.setAttribute('id', "rate" + i + '-1');
+            elm_rate_radio1.type = "radio";
+            elm_rate_radio1.name = "rate";
+            elm_rate_radio1.value = 1;
+            elm_rate_form.appendChild(elm_rate_radio1);
+            elm_rate_label1 = document.createElement("label");
+            elm_rate_label1.setAttribute('for', "rate" + i + '-1');
+            elm_rate_label1.textContent = '♥';
+            elm_rate_form.appendChild(elm_rate_label1);
 
             elm_form_check.appendChild(elm_form_check_check);
             elm_form_check.appendChild(elm_form_check_label);
@@ -604,15 +686,15 @@
             if (_areas[i]["category"] == '観光地') {
               elm_areas1.appendChild(elm_div);
               elm_areas1.appendChild(elm_form_check_input1);
-              elm_areas1.appendChild(elm_form_check_input2);
+              elm_areas1.appendChild(elm_rate_form);
             } else if (_areas[i]["category"] == '鉄道の駅') {
               elm_areas2.appendChild(elm_div);
               elm_areas2.appendChild(elm_form_check_input1);
-              elm_areas2.appendChild(elm_form_check_input2);
+              elm_areas2.appendChild(elm_rate_form);
             } else if (_areas[i]["category"] == 'ホテル') {
               elm_areas3.appendChild(elm_div);
               elm_areas3.appendChild(elm_form_check_input1);
-              elm_areas3.appendChild(elm_form_check_input2);
+              elm_areas3.appendChild(elm_rate_form);
             }
           }
           // 到着地を設定

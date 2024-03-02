@@ -55,7 +55,7 @@ def tp_navi():
 @app.route('/area')
 def tp_area():
     print("** /area " + request.method)
-    with open("./areas.json", "r", encoding="utf-8") as f:
+    with open("./areas_s.json", "r", encoding="utf-8") as f:
         ret = json.load(f)
         return jsonify(ret)
 

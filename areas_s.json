@@ -3,6 +3,7 @@
         "category": "ホテル",
         "name": "京都東急ホテル",
         "duration_of_stay": 0,
+        "price": 0,
         "location": {
             "lat": 34.9951359,
             "lng": 135.7490678
@@ -13,7 +14,8 @@
     {
         "category": "観光地",
         "name": "金閣寺",
-        "duration_of_stay": 90,
+        "duration_of_stay": 30,
+        "price": 400,
         "location": {
             "lat": 35.0393744,
             "lng": 135.7266682
@@ -24,7 +26,8 @@
     {
         "category": "観光地",
         "name": "東寺",
-        "duration_of_stay": 60,
+        "duration_of_stay": 30,
+        "price": 1000,
         "location": {
             "lat": 34.9802498,
             "lng": 135.7475844
@@ -35,7 +38,8 @@
     {
         "category": "観光地",
         "name": "京都タワー",
-        "duration_of_stay": 60,
+        "duration_of_stay": 30,
+        "price": 900,
         "location": {
             "lat": 34.9875936,
             "lng": 135.7567649
@@ -46,7 +50,8 @@
     {
         "category": "観光地",
         "name": "清水寺",
-        "duration_of_stay": 120,
+        "duration_of_stay": 45,
+        "price": 400,
         "location": {
             "lat": 34.9946706,
             "lng": 135.7820861
@@ -57,7 +62,8 @@
     {
         "category": "観光地",
         "name": "嵐山",
-        "duration_of_stay": 120,
+        "duration_of_stay": 60,
+        "price": 0,
         "location": {
             "lat": 35.0168187,
             "lng": 135.6713013
@@ -68,7 +74,8 @@
     {
         "category": "観光地",
         "name": "伏見稲荷",
-        "duration_of_stay": 60,
+        "duration_of_stay": 30,
+        "price": 0,
         "location": {
             "lat": 34.9699515,
             "lng": 135.7709048
@@ -79,7 +86,8 @@
     {
         "category": "観光地",
         "name": "銀閣寺",
-        "duration_of_stay": 60,
+        "duration_of_stay": 30,
+        "price": 500,
         "location": {
             "lat": 35.0272541,
             "lng": 135.7945173
@@ -90,7 +98,8 @@
     {
         "category": "観光地",
         "name": "二条城",
-        "duration_of_stay": 60,
+        "duration_of_stay": 30,
+        "price": 1030,
         "location": {
             "lat": 35.0138344,
             "lng": 135.7434714
@@ -101,7 +110,8 @@
     {
         "category": "観光地",
         "name": "京都府立植物園",
-        "duration_of_stay": 120,
+        "duration_of_stay": 60,
+        "price": 200,
         "location": {
             "lat": 35.0487413,
             "lng": 135.7601605
@@ -110,9 +120,10 @@
         "summary": "京都府立植物園は、日本で最初の公立植物園で、1924年に開園しました。広大な敷地には約12,000種類、約12万本の植物が植えられ、四季折々の花や木々を楽しめます。観覧温室や洋風庭園もあります"
     },
     {
-        "category": "駅",
+        "category": "鉄道の駅",
         "name": "京都駅",
         "duration_of_stay": 0,
+        "price": 0,
         "location": {
             "lat": 34.9858534,
             "lng": 135.7561971
