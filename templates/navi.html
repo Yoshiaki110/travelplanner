@@ -228,6 +228,9 @@
       function areatime(i, areas) {
         return areas[i][1];
       }
+      function areaprice(i, areas) {
+        return areas[i][3];
+      }
 
       // コースの１行を表示
       function printrow(txt) {
@@ -292,6 +295,26 @@
         return hour_str + ":" + minute_str;
       };
 
+      // 時間、料金の計算
+      function calcroute(ret, areas) {
+        if (ret['details'].length == 0) {
+          printrow("エラー");
+          return;
+        }
+        let date = new Date();
+        var prices = 0;
+        for (var r of ret['details']) {
+          //++i;
+          time1 = strTime(date)
+          date.setMinutes(date.getMinutes() + Number(areatime(r['from'], areas)));
+          time2 = strTime(date)
+          date.setMinutes(date.getMinutes() + r['time']);
+          console.log('料金', areaname(r['to'], areas), areaprice(r['to'], areas));
+          prices += areaprice(r['to'], areas);
+        }
+        return [date, prices];
+      }
+
       // コースを表示
       function printroute(ret, areas) {
         if (ret['details'].length == 0) {
@@ -319,7 +342,6 @@
         }
         //console.log(lastname);
         printrow(lastname + '　' + strTime(date) + '着');
-        return date;
       }
 
       // コースを地図上に表示
@@ -358,7 +380,7 @@
           // 地図の中心座標(現在地)を追加
           var latLng = _map.getCenter();
           console.log("現在地", [latLng.lat(), latLng.lng()]);
-          areas.push(["現在地", 0, [latLng.lat(), latLng.lng()]]);
+          areas.push(["現在地", 0, [latLng.lat(), latLng.lng()], 0]);
           // 選択している経由地を追加
           for (var i = 0; i < _areas.length; i++) {
             var elmx_cb = document.getElementById("area" + i);
@@ -373,14 +395,14 @@
             if (elmx_cb.checked && priority >= level) {
               var elmx_val = document.getElementById("area_val" + i);
               console.log(_areas[i]["name"], _areas[i]["location"], priority);
-              areas.push([_areas[i]["name"], elmx_val.value, [_areas[i]["location"]["lat"],_areas[i]["location"]["lng"]]]);
+              areas.push([_areas[i]["name"], elmx_val.value, [_areas[i]["location"]["lat"],_areas[i]["location"]["lng"]], _areas[i]["price"]]);
             }
           }
           // 選択している到着地を追加
           for (var i = 0; i < _areas.length; i++) {
             if (elm_arrival.value == _areas[i]["name"]) {
               console.log(_areas[i]["name"], _areas[i]["location"]);
-              areas.push([_areas[i]["name"], _areas[i]["duration_of_stay"], [_areas[i]["location"]["lat"],_areas[i]["location"]["lng"]]]);
+              areas.push([_areas[i]["name"], _areas[i]["duration_of_stay"], [_areas[i]["location"]["lat"],_areas[i]["location"]["lng"]], _areas[i]["price"]]);
             }
           }
 
@@ -437,22 +459,40 @@
           console.log(myjson);
           limit.setHours(document.getElementById("hh").value);
           limit.setMinutes(document.getElementById("mm").value);
+          var price = document.getElementById("price").value
+          price = price == 0 ? 999999 : price; 
           var calcdate = limit;
+          var prices = 0;
           if ('details' in myjson) {
             console.log("成功")
-            calcdate = printroute(myjson, areas);
-            displayroute(myjson, areas);
+            var ret = calcroute(myjson, areas);
+            calcdate = ret[0];
+            prices = ret[1];
           } else {
             printrow("エラー");
             break;
           }
-          if (calcdate.getTime() < limit.getTime()) {
+          if (calcdate.getTime() <= limit.getTime() && prices <= price) {
+            printroute(myjson, areas);
+            displayroute(myjson, areas);
             break;
           }
           if (level == 3) {
-            printrow("⚠ 時間オーバー");
-          }
-        }
+            printroute(myjson, areas);
+            displayroute(myjson, areas);
+            var msg = "⚠ ";
+            if (calcdate.getTime() > limit.getTime()) {
+              msg += "時間";
+              if (prices > price) {
+                msg += "と予算";
+              }
+            } else {
+              if (prices > price) {
+                msg += "予算";
+              }
+            }
+            printrow(msg + "オーバー");
+          }        }
         executing(false);
       }
 
