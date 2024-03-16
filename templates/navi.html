@@ -156,7 +156,7 @@
         <label for="around">周辺情報:</label>
         <textarea id="around" class="form-control" readonly></textarea>
         <br />
-        <button type="button" class="btn btn-primary btn-block" onclick="guidance();">周辺情報の音声案内</button>
+        <button type="button" class="btn btn-primary btn-block" onclick="guidance();">周辺情報案内</button>
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -181,6 +181,8 @@
       }
       window.initMap = initMap;
       var _areas = {};
+      var fare_table = [];
+
       const elm_areas1 = document.getElementById("areas1");
       const elm_areas2 = document.getElementById("areas2");
       const elm_areas3 = document.getElementById("areas3");
@@ -310,7 +312,8 @@
           time2 = strTime(date)
           date.setMinutes(date.getMinutes() + r['time']);
           console.log('料金', areaname(r['to'], areas), areaprice(r['to'], areas));
-          prices += areaprice(r['to'], areas);
+          prices += areaprice(r['from'], areas);
+          prices += fare_table[r['from']][r['to']];
         }
         return [date, prices];
       }
@@ -323,6 +326,7 @@
         }
         //var val = elm_radio.elements['radio'].value;
         let date = new Date();
+        var prices = 0;
         var lastname = "";
         var i = 0;
         for (var r of ret['details']) {
@@ -334,14 +338,16 @@
             date.setMinutes(date.getMinutes() + Number(areatime(r['from'], areas)));
             time2 = strTime(date)
             printrow(areaname(r['from'], areas) + '　' + time1 + '着　' + time2 + '発(滞在' + areatime(r['from'], areas) + '分)');
+            prices += areaprice(r['from'], areas);
           }
           date.setMinutes(date.getMinutes() + r['time']);
           printrowbutton(r, areas);
+          prices += fare_table[r['from']][r['to']];
 
           lastname = areaname(r['to'], areas);
         }
         //console.log(lastname);
-        printrow(lastname + '　' + strTime(date) + '着');
+        printrow(lastname + '　' + strTime(date) + '着 (' + prices + '円)');
       }
 
       // コースを地図上に表示
@@ -411,8 +417,10 @@
           var table = [];
           for (var i = 0; i < areas.length; i++) {
             table[i] = [];
+            fare_table[i] = [];
             for (var j = 0; j < areas.length; j++) {
               table[i][j] = 0;
+              fare_table[i][j] = 0;
             }
           }
 
@@ -430,6 +438,8 @@
               //console.log(ret.result); // => json
               table[i][j] = ret.time;
               table[j][i] = ret.time;
+              fare_table[i][j] = ret.fare
+              fare_table[j][i] = ret.fare
             }
           }
           // 確認用に表示
