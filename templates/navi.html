@@ -119,6 +119,19 @@
 
         <div class="form-row">
           <div class="col-3">
+            <label class="form-check-label">出発時間</label>
+          </div>
+          <div class="col-2">
+            <input class="form-control form-control-sm" type="number" id="shh" min="0" max="23" maxlength="2" style="text-align:right">
+          </div>
+          ：
+          <div class="col-2">
+            <input class="form-control form-control-sm" type="number" id="smm" min="0" max="59" maxlength="2" style="text-align:right">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-3">
             <label class="form-check-label">到着期限</label>
           </div>
           <div class="col-2">
@@ -195,7 +208,7 @@
       const elm_dlg_img = document.getElementById('dlg-img');
       const elm_calc_button = document.getElementById('calc-button');
       const elm_calc_spinner = document.getElementById('calc-spinner');
-      let limit = new Date();
+      let limit = getStartTime();
       limit.setMinutes(limit.getMinutes() + 60 * 3);
 
       // ダイアログのメッセージ消去
@@ -303,7 +316,7 @@
           printrow("エラー");
           return;
         }
-        let date = new Date();
+        let date = getStartTime();
         var prices = 0;
         for (var r of ret['details']) {
           //++i;
@@ -325,7 +338,7 @@
           return;
         }
         //var val = elm_radio.elements['radio'].value;
-        let date = new Date();
+        let date = getStartTime();
         var prices = 0;
         var lastname = "";
         var i = 0;
@@ -608,6 +621,21 @@
         }
       }
 
+      // 出発期限
+      function setStartTime() {
+        let date = new Date();
+        document.getElementById("shh").value = date.getHours();
+        document.getElementById("smm").value = date.getMinutes();
+      }
+      function getStartTime() {
+        var hh = document.getElementById("shh").value;
+        var mm = document.getElementById("smm").value;
+        let date = new Date();
+        date.setHours(hh);
+        date.setMinutes(mm);
+        return date;
+      }
+
       // 到着期限
       function setEndTime() {
         let date = new Date();
@@ -615,16 +643,8 @@
         if (date.getHours() > 16) {
           hh = 23;
         }
-        /*
-        date.setMinutes(date.getMinutes() + 60 * 3);
-        let strdate = strTime(date);
-        let hh = strdate.slice(0, 2);
-        document.getElementById("hh").value = hh - 0;
-        let mm = strdate.slice(3, 5);
-        document.getElementById("mm").value = mm - 0;
-        */
         document.getElementById("hh").value = hh;
-        document.getElementById("mm").value = 30;
+        document.getElementById("mm").value = 31;
       }
 
       function areadetail(val) {
@@ -764,7 +784,8 @@
           }
         });
 
-      // 到着期限を設定
+      // 出発時間、到着期限を設定
+      setStartTime();
       setEndTime();
     </script>
   </body>
