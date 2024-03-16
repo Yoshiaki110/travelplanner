@@ -56,11 +56,19 @@
             </div>
           </div>
         </div>
-        <div class="row">
+
+
+        <div class="form-group">
+          <label for="departure">出発地:</label>
+          <select id="departure" class="custom-select"></select>
+        </div>
+
+
+        <!--div class="row">
           <div class="col-12">
             <button type="button" class="btn btn-light btn-block" onclick="get_position();">現在地設定</button>
           </div>
-        </div>
+        </div-->
 
         <ul class="nav nav-tabs" role="tablist">
           <li class="nav-item">
@@ -203,6 +211,7 @@
       const elm_radio = document.getElementById('radioForm');
       const elm_around = document.getElementById('around');
       const elm_arrival = document.getElementById('arrival');
+      const elm_departure = document.getElementById('departure');
       const elm_dlg_ttl = document.getElementById('dlg-ttl');
       const elm_dlg_msg = document.getElementById('dlg-msg');
       const elm_dlg_img = document.getElementById('dlg-img');
@@ -350,8 +359,13 @@
             time1 = strTime(date)
             date.setMinutes(date.getMinutes() + Number(areatime(r['from'], areas)));
             time2 = strTime(date)
-            printrow(areaname(r['from'], areas) + '　' + time1 + '着　' + time2 + '発(滞在' + areatime(r['from'], areas) + '分)');
-            prices += areaprice(r['from'], areas);
+            price = areaprice(r['from'], areas);
+            if (price == 0) {
+              printrow(areaname(r['from'], areas) + '　' + time1 + '着　' + time2 + '発(滞在' + areatime(r['from'], areas) + '分)');
+            } else {
+              printrow(areaname(r['from'], areas) + '(' + price + '円)　' + time1 + '着　' + time2 + '発(滞在' + areatime(r['from'], areas) + '分)');
+            }
+            prices += price;
           }
           date.setMinutes(date.getMinutes() + r['time']);
           printrowbutton(r, areas);
@@ -396,10 +410,23 @@
 
           // areasに経由地の座標を入れる
           var areas = []                   // [['地点A',[34.99, 135.99]], ['地点A',[34.99, 135.99]]]
-          // 地図の中心座標(現在地)を追加
-          var latLng = _map.getCenter();
-          console.log("現在地", [latLng.lat(), latLng.lng()]);
-          areas.push(["現在地", 0, [latLng.lat(), latLng.lng()], 0]);
+
+          // 選択している出発地を追加
+          if (elm_departure.value == "現在地") {
+            // 地図の中心座標(現在地)を追加
+            var latLng = _map.getCenter();
+            console.log("現在地", [latLng.lat(), latLng.lng()]);
+            areas.push(["現在地", 0, [latLng.lat(), latLng.lng()], 0]);
+          } else {
+            for (var i = 0; i < _areas.length; i++) {
+              if (elm_departure.value == _areas[i]["name"]) {
+                console.log(_areas[i]["name"], _areas[i]["location"]);
+                areas.push([_areas[i]["name"], _areas[i]["duration_of_stay"], [_areas[i]["location"]["lat"],_areas[i]["location"]["lng"]], _areas[i]["price"]]);
+                break;
+              }
+            }
+          }
+          
           // 選択している経由地を追加
           for (var i = 0; i < _areas.length; i++) {
             var elmx_cb = document.getElementById("area" + i);
@@ -422,6 +449,7 @@
             if (elm_arrival.value == _areas[i]["name"]) {
               console.log(_areas[i]["name"], _areas[i]["location"]);
               areas.push([_areas[i]["name"], _areas[i]["duration_of_stay"], [_areas[i]["location"]["lat"],_areas[i]["location"]["lng"]], _areas[i]["price"]]);
+              break;
             }
           }
 
@@ -775,11 +803,17 @@
             }
           }
           // 到着地を設定
+          elm_option2 = document.createElement("option");
+          elm_option2.textContent = "現在地";
+          elm_departure.appendChild(elm_option2);
           for (var i = 0; i < _areas.length; i++) {
             if (_areas[i]["category"] == '鉄道の駅' || _areas[i]["category"] == 'ホテル') {
               elm_option = document.createElement("option");
               elm_option.textContent = _areas[i]["name"];
               elm_arrival.appendChild(elm_option);
+              elm_option2 = document.createElement("option");
+              elm_option2.textContent = _areas[i]["name"];
+              elm_departure.appendChild(elm_option2);
             }
           }
         });
