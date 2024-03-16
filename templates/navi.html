@@ -46,9 +46,7 @@
               <div class="modal-header">
                 <h5 class="modal-title" id="dlg-ttl">案内</h5>
               </div>
-              <div id="dlg-msg" class="modal-body">
-                ないよう
-              </div>
+              <div id="dlg-msg" class="modal-body"></div>
               <center id="dlg-img"></center>
               <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="diagmsg('','', null);">OK</button>
@@ -689,7 +687,11 @@
         }
       }
 
-      fetch("/area")
+      var data_url = "/static/areas_s.json";
+      if (window.location.search.substring(1) == 'large') {
+        data_url = "/static/areas.json";
+      }
+      fetch(data_url)
         .then(function (response) {
           return response.json();
         }).then(function (myjson) {
@@ -821,6 +823,8 @@
       // 出発時間、到着期限を設定
       setStartTime();
       setEndTime();
+      console.log(window.location.href);
+      console.log(window.location.search.substring(1));
     </script>
   </body>
 </html>

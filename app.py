@@ -33,7 +33,8 @@ def tp_index():
     print("** / " + request.method)
     #tp.tp_init(DWAVE_KEY)
     tp.tp_init(AMPLIFY_KEY)
-    resp = make_response(render_template("index.html", GOOGLEMAP_KEY = GOOGLEMAP_KEY))
+    #resp = make_response(render_template("index.html", GOOGLEMAP_KEY = GOOGLEMAP_KEY))
+    resp = make_response(render_template("navi.html", GOOGLEMAP_KEY = GOOGLEMAP_KEY))
     return resp
 
 @app.route('/realtime')
