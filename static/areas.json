@@ -3026,22 +3026,6 @@
     },
     {
       "category": "鉄道の駅",
-      "name": "国道駅",
-      "duration_of_stay": 0,
-      "price": 0,
-      "summary": "情報なし",
-      "address": "日本、〒230-0051 神奈川県横浜市鶴見区鶴見中央５丁目２６",
-      "phone_number": "",
-      "location": {
-        "lat": 35.5008127,
-        "lng": 139.6756975
-      },
-      "website": "",
-      "photo": "/static/img/ChIJ3fAah-FdGGARTfNvdRef2fA.jpg",
-      "opening_hours": {}
-    },
-    {
-      "category": "鉄道の駅",
       "name": "チンチン電車のりば (すざくゆめ広場)",
       "duration_of_stay": 0,
       "price": 0,
@@ -3160,38 +3144,6 @@
     },
     {
       "category": "鉄道の駅",
-      "name": "弁天橋駅",
-      "duration_of_stay": 0,
-      "price": 0,
-      "summary": "情報なし",
-      "address": "日本、〒230-0044 神奈川県横浜市鶴見区弁天町",
-      "phone_number": "",
-      "location": {
-        "lat": 35.49592319999999,
-        "lng": 139.6897811
-      },
-      "website": "",
-      "photo": "/static/img/ChIJVejIQPZdGGARdPiFTdeGn7M.jpg",
-      "opening_hours": {}
-    },
-    {
-      "category": "鉄道の駅",
-      "name": "東京駅",
-      "duration_of_stay": 0,
-      "price": 0,
-      "summary": "情報なし",
-      "address": "〒100-0005 東京都千代田区丸の内１丁目９",
-      "phone_number": "",
-      "location": {
-        "lat": 35.68123620000001,
-        "lng": 139.7671248
-      },
-      "website": "https://www.tokyoinfo.com/",
-      "photo": "/static/img/ChIJC3Cf2PuLGGAROO00ukl8JwA.png",
-      "opening_hours": {}
-    },
-    {
-      "category": "鉄道の駅",
       "name": "梅小路京都西駅",
       "duration_of_stay": 0,
       "price": 0,
@@ -3270,4 +3222,4 @@
       "photo": "/static/img/ChIJkWTQ1ysEAWARaVpA80kYeO4.jpg",
       "opening_hours": {}
     }
-  ]
+]

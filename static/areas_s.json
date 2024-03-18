@@ -12,6 +12,118 @@
         "summary": "京都駅近くの静かな立地で、モダンな和の空間と洗練された客室を提供しています。"
     },
     {
+      "category": "ホテル",
+      "name": "ホテルモントレ京都",
+      "duration_of_stay": 0,
+      "price": 0,
+      "summary": "無料 Wi-Fi 完備の高級ホテル。レストラン 2 軒、カフェ＆バー、温泉風呂を備えたスパを併設。",
+      "address": "〒604-8161 京都府京都市中京区烏丸通三条下ル饅頭屋町６０４",
+      "phone_number": "075-251-7111",
+      "location": {
+        "lat": 35.0078486,
+        "lng": 135.7594248
+      },
+      "website": "https://www.hotelmonterey.co.jp/kyoto/?utm_source=google&utm_medium=mybusiness&utm_campaign=website_monkyo",
+      "photo": "/static/img/ChIJEdzLq-0GAWARfUpevjWDfcE.jpg",
+      "opening_hours": {}
+    },
+    {
+      "category": "ホテル",
+      "name": "リーガロイヤルホテル 京都",
+      "duration_of_stay": 0,
+      "price": 0,
+      "summary": "モダンな客室とスイートを備えた高級ホテル。シックなレストラン 6 軒、バー、屋内プールあり。",
+      "address": "〒600-8237 京都府京都市下京区松明町 1番地",
+      "phone_number": "075-341-1121",
+      "location": {
+        "lat": 34.9863853,
+        "lng": 135.7526951
+      },
+      "website": "https://www.rihga.co.jp/kyoto",
+      "photo": "/static/img/ChIJ2_bqcpUIAWARCxsfbw83nEY.jpg",
+      "opening_hours": {}
+    },
+    {
+      "category": "ホテル",
+      "name": "三井ガーデンホテル京都四条",
+      "duration_of_stay": 0,
+      "price": 0,
+      "summary": "くつろげる内装の客室を備えた実用的なホテル。レストランと大浴場を完備する。",
+      "address": "〒600-8472 京都府京都市下京区西洞院通四条下ル妙伝寺町７０７−１",
+      "phone_number": "075-361-5531",
+      "location": {
+        "lat": 35.0029696,
+        "lng": 135.7550375
+      },
+      "website": "http://www.gardenhotels.co.jp/kyoto-shijo/?utm_source=googlebusinessprofile&utm_medium=google&utm_campaign=maps",
+      "photo": "/static/img/ChIJS-R5-64IAWARSH31yfRBT2k.jpg",
+      "opening_hours": {}
+    },
+    {
+      "category": "ホテル",
+      "name": "京都ブライトンホテル",
+      "duration_of_stay": 0,
+      "price": 0,
+      "summary": "おしゃれな客室とスイートを備えた洗練されたホテル。レストラン 4 軒を併設。地下鉄駅までの無料送迎サービスあり。",
+      "address": "〒602-8071 京都府京都市上京区仕丁町３３０",
+      "phone_number": "075-441-4411",
+      "location": {
+        "lat": 35.0243557,
+        "lng": 135.7557497
+      },
+      "website": "https://www.brightonhotels.co.jp/kyoto/",
+      "photo": "/static/img/ChIJSdpNdnQIAWARDdhcmpKx0ec.jpg",
+      "opening_hours": {}
+    },
+    {
+      "category": "ホテル",
+      "name": "オリエンタルホテル 京都六条",
+      "duration_of_stay": 0,
+      "price": 0,
+      "summary": "シンプルな客室を備えた高級ホテル。レストラン、バー、カフェ、庭園がある。",
+      "address": "〒600-8333 京都府京都市下京区卜味金仏町１８１",
+      "phone_number": "075-343-8111",
+      "location": {
+        "lat": 34.9944757,
+        "lng": 135.7535423
+      },
+      "website": "https://kyotorokujo.oriental-hotels.com/?utm_source=google&utm_medium=gbp",
+      "photo": "/static/img/ChIJLdeHOKAIAWARB0dpNooQkg0.jpg",
+      "opening_hours": {}
+    },
+    {
+      "category": "ホテル",
+      "name": "スマイルホテル京都四条",
+      "duration_of_stay": 0,
+      "price": 0,
+      "summary": "シンプルな客室を備えた気取らないホテル。カジュアルなレストランあり。Wi-Fi 無料。",
+      "address": "〒600-8494 京都府京都市下京区傘鉾町５９−６１",
+      "phone_number": "075-371-0941",
+      "location": {
+        "lat": 35.0035397,
+        "lng": 135.7545902
+      },
+      "website": "https://smile-hotels.com/hotels/show/kyotoshijo",
+      "photo": "/static/img/ChIJz7Ba4pwIAWAR7ADf6L0utqg.jpg",
+      "opening_hours": {}
+    },
+    {
+      "category": "ホテル",
+      "name": "チサン プレミアム 京都九条",
+      "duration_of_stay": 0,
+      "price": 0,
+      "summary": "情報なし",
+      "address": "〒601-8015 京都府京都市南区東九条上御霊町１５−１",
+      "phone_number": "075-672-6180",
+      "location": {
+        "lat": 34.9805119,
+        "lng": 135.7639811
+      },
+      "website": "https://www.solarehotels.com/hotel/kyoto/cp-kk/?utm_source=google&utm_medium=gbp&utm_campaign=gbp_cpkk",
+      "photo": "/static/img/ChIJv-KgIaQPAWARgk146iOXiYw.jpg",
+      "opening_hours": {}
+    },
+    {
         "category": "観光地",
         "name": "金閣寺",
         "duration_of_stay": 30,
@@ -118,6 +230,216 @@
         },
         "photo": "https://www.pref.kyoto.jp/plant/images/11910088.jpg",
         "summary": "京都府立植物園は、日本で最初の公立植物園で、1924年に開園しました。広大な敷地には約12,000種類、約12万本の植物が植えられ、四季折々の花や木々を楽しめます。観覧温室や洋風庭園もあります"
+    },
+    {
+      "category": "観光地",
+      "name": "京都御所",
+      "duration_of_stay": 30,
+      "price": 0,
+      "summary": "1855 年に再建された皇室関連の複合施設と旧仮皇居。庭園と門もある。",
+      "address": "〒602-0881 京都府京都市上京区京都御苑３",
+      "phone_number": "075-211-1211",
+      "location": {
+        "lat": 35.0259202,
+        "lng": 135.7616454
+      },
+      "website": "http://sankan.kunaicho.go.jp/guide/kyoto.html",
+      "photo": "/static/img/ChIJDVAFLmUIAWAR9bs0H-yer6o.jpg",
+      "opening_hours": {
+        "0": {
+          "open": "0900",
+          "close": "1600"
+        },
+        "3": {
+          "open": "0900",
+          "close": "1600"
+        },
+        "4": {
+          "open": "0900",
+          "close": "1600"
+        },
+        "5": {
+          "open": "0900",
+          "close": "1600"
+        },
+        "6": {
+          "open": "0900",
+          "close": "1600"
+        }
+      }
+    },
+    {
+      "category": "観光地",
+      "name": "八坂神社",
+      "duration_of_stay": 30,
+      "price": 0,
+      "summary": "日本有数の祭礼が行われる 656 年創建の神社。",
+      "address": "〒605-0073 京都府京都市東山区祇園町北側６２５",
+      "phone_number": "075-561-6155",
+      "location": {
+        "lat": 35.0036559,
+        "lng": 135.7785534
+      },
+      "website": "http://www.yasaka-jinja.or.jp/",
+      "photo": "/static/img/ChIJqewQoHkIAWAR6RokWp3Iesc.jpg",
+      "opening_hours": {}
+    },
+    {
+      "category": "観光地",
+      "name": "平安神宮",
+      "duration_of_stay": 30,
+      "price": 600,
+      "summary": "平安遷都 1100 年を記念して 1895 年に創建された神社。美しい景観をみせる日本庭園がある。",
+      "address": "〒606-8341 京都府京都市左京区岡崎西天王町９７",
+      "phone_number": "075-761-0221",
+      "location": {
+        "lat": 35.0159823,
+        "lng": 135.7824263
+      },
+      "website": "http://www.heianjingu.or.jp/",
+      "photo": "/static/img/ChIJjch8GOUIAWART0WX2JLZvnU.jpg",
+      "opening_hours": {
+        "0": {
+          "open": "0600",
+          "close": "1700"
+        },
+        "1": {
+          "open": "0600",
+          "close": "1700"
+        },
+        "2": {
+          "open": "0600",
+          "close": "1700"
+        },
+        "3": {
+          "open": "0600",
+          "close": "1700"
+        },
+        "4": {
+          "open": "0600",
+          "close": "1700"
+        },
+        "5": {
+          "open": "0600",
+          "close": "1700"
+        },
+        "6": {
+          "open": "0600",
+          "close": "1700"
+        }
+      }
+    },
+    {
+      "category": "鉄道の駅",
+      "name": "嵐山駅",
+      "duration_of_stay": 0,
+      "price": 0,
+      "summary": "情報なし",
+      "address": "〒616-8385 京都府京都市右京区嵯峨天龍寺芒ノ馬場町６３−１",
+      "phone_number": "",
+      "location": {
+        "lat": 35.0152199,
+        "lng": 135.6777126
+      },
+      "website": "",
+      "photo": "/static/img/ChIJA_l9v_-pAWARfmDMEq4l_lU.jpg",
+      "opening_hours": {}
+    },
+    {
+      "category": "鉄道の駅",
+      "name": "京阪電車　七条駅",
+      "duration_of_stay": 0,
+      "price": 0,
+      "summary": "情報なし",
+      "address": "日本、〒605-0992 京都府京都市東山区下堀詰町",
+      "phone_number": "",
+      "location": {
+        "lat": 34.9895675,
+        "lng": 135.7680194
+      },
+      "website": "",
+      "photo": "/static/img/ChIJewLIkbYIAWARSOG3tiYNx4w.jpg",
+      "opening_hours": {}
+    },
+    {
+      "category": "鉄道の駅",
+      "name": "西院駅（京福電気鉄道）",
+      "duration_of_stay": 0,
+      "price": 0,
+      "summary": "情報なし",
+      "address": "日本、〒604-8854 京都府京都市中京区壬生仙念町",
+      "phone_number": "",
+      "location": {
+        "lat": 35.0035881,
+        "lng": 135.7336537
+      },
+      "website": "",
+      "photo": "/static/img/ChIJn30mrEoGAWARuZQ9-dI-Ar4.jpg",
+      "opening_hours": {}
+    },
+    {
+      "category": "鉄道の駅",
+      "name": "梅小路京都西駅",
+      "duration_of_stay": 0,
+      "price": 0,
+      "summary": "情報なし",
+      "address": "日本、〒600-8835 京都府京都市下京区観喜寺町",
+      "phone_number": "",
+      "location": {
+        "lat": 34.9889106,
+        "lng": 135.7431391
+      },
+      "website": "",
+      "photo": "/static/img/ChIJH8lqLhgGAWARfixKvXcX45c.jpg",
+      "opening_hours": {}
+    },
+    {
+      "category": "鉄道の駅",
+      "name": "鳴滝駅",
+      "duration_of_stay": 0,
+      "price": 0,
+      "summary": "情報なし",
+      "address": "日本、〒616-8234 京都府京都市右京区鳴滝嵯峨園町",
+      "phone_number": "",
+      "location": {
+        "lat": 35.023683,
+        "lng": 135.7057701
+      },
+      "website": "",
+      "photo": "/static/img/ChIJ3Za-v3wHAWARS7WIKmc9-0k.jpg",
+      "opening_hours": {}
+    },
+    {
+      "category": "鉄道の駅",
+      "name": "京都市役所前駅",
+      "duration_of_stay": 0,
+      "price": 0,
+      "summary": "情報なし",
+      "address": "日本、〒604-8006 京都府京都市中京区下丸屋町",
+      "phone_number": "075-213-1364",
+      "location": {
+        "lat": 35.0109265,
+        "lng": 135.7693484
+      },
+      "website": "http://www.city.kyoto.lg.jp/kotsu/page/0000009988.html",
+      "photo": "/static/img/ChIJNWerh5IIAWARFaoo6kriZgM.jpg",
+      "opening_hours": {}
+    },
+    {
+      "category": "鉄道の駅",
+      "name": "向日町駅",
+      "duration_of_stay": 0,
+      "price": 0,
+      "summary": "情報なし",
+      "address": "日本、〒617-0002 京都府向日市寺戸町久々相",
+      "phone_number": "",
+      "location": {
+        "lat": 34.95498469999999,
+        "lng": 135.7095106
+      },
+      "website": "",
+      "photo": "/static/img/ChIJkWTQ1ysEAWARaVpA80kYeO4.jpg",
+      "opening_hours": {}
     },
     {
         "category": "鉄道の駅",

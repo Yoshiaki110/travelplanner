@@ -3,6 +3,7 @@
 import os
 from flask import Flask, render_template, request, jsonify, make_response
 import datetime
+import time
 import requests
 import json
 from openai import OpenAI
@@ -19,6 +20,7 @@ NAVITIME_KEY = os.environ['NAVITIME_KEY']
 
 app = Flask(__name__)
 openai_client = OpenAI(api_key=OPENAI_KEY)
+navitime_call_time = time.time()
 
 #
 # トラベルプランナー
@@ -100,6 +102,7 @@ def tp_tsp():
 
 @app.route("/route")
 def tp_route():
+    global navitime_call_time
     print("** /route " + request.method)
     req = request.args
     start = req.get("start")
@@ -112,6 +115,11 @@ def tp_route():
         with open(path, "r", encoding="utf-8") as f:
             ret = json.load(f)
             return jsonify(ret)
+
+    ctime = time.time()
+    if ctime - navitime_call_time < 0.2:
+        time.sleep(0.2)
+    navitime_call_time = ctime
 
     now = datetime.datetime.now()
     querystring = {

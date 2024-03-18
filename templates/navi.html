@@ -399,12 +399,14 @@
 
       // ルート計算
       async function chg_cb() {
+        all_process_time = performance.now();
         executing(true);
         for (var level = 1; level <= 3; level++) {
           // 消す
           while (elm_selareas.firstChild) {
             elm_selareas.removeChild(elm_selareas.firstChild);
           }
+          table_make_time = performance.now();
 
           // areasに経由地の座標を入れる
           var areas = []                   // [['地点A',[34.99, 135.99]], ['地点A',[34.99, 135.99]]]
@@ -497,6 +499,8 @@
             [62, 94, 62, 0, 64],
             [9, 64, 44, 64, 0],
           ];*/
+          console.log('**table_make_time**', performance.now() - table_make_time);
+          annealing_time = performance.now();
           const method = "POST";
           const headers = {
             'Accept': 'application/json',
@@ -512,6 +516,7 @@
           price = price == 0 ? 999999 : price; 
           var calcdate = limit;
           var prices = 0;
+          console.log('**annealing_time**', performance.now() - annealing_time);
           if ('details' in myjson) {
             console.log("成功")
             var ret = calcroute(myjson, areas);
@@ -541,7 +546,9 @@
               }
             }
             printrow(msg + "オーバー");
-          }        }
+          }
+        }
+        console.log('**all_process_time**', performance.now() - all_process_time);
         executing(false);
       }
 
@@ -670,7 +677,7 @@
           hh = 23;
         }
         document.getElementById("hh").value = hh;
-        document.getElementById("mm").value = 31;
+        document.getElementById("mm").value = 30;
       }
 
       function areadetail(val) {
