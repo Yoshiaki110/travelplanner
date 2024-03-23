@@ -96,6 +96,7 @@ def tp_tsp():
     print("** /tsp " + request.method)
     table = request.json['table']
     print(table)
+    tp.tp_init(AMPLIFY_KEY)
     ret = tp.tp_tsp(table)
     print(ret)
     return jsonify(ret)
