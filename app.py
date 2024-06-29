@@ -6,6 +6,7 @@ import datetime
 import time
 import requests
 import json
+import socket
 from openai import OpenAI
 #import tp_pyqubo as tp
 #import tp_tytan as tp
@@ -159,6 +160,14 @@ def tp_route():
     with open(path, 'w', encoding="utf-8") as f:
         json.dump(ret, f, indent=2, ensure_ascii=False)
     return jsonify(ret)
+
+@app.route('/ipaddr')
+def ipaddr():
+    print("** /ipaddr " + request.method)
+    req = request.args
+    domain = req.get("domain")
+    ip = socket.gethostbyname(domain)
+    return ip
 
 if __name__ == '__main__':
   app.run(debug=True)
